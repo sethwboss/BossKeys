@@ -1,0 +1,63 @@
+nav {
+    display: flex;
+    justify-content: space-evenly;
+    width: 100%;
+    min-height: 140px;
+    box-sizing: border-box;
+    background-image: linear-gradient(to bottom, #3b0764, black);
+    padding: 20px 40px;
+    align-items: center;
+    border-bottom: 2px solid rgba(198, 107, 228, 0.2);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    backdrop-filter: blur(10px);
+}
+
+.piano-logo {
+    width: 100px;
+    margin: auto 30px auto 10px;
+    padding: 15px 0;
+}
+
+.nav_links a {
+    color: white;
+    text-decoration: none;
+    padding: 10px 10px;
+    font-size: 40px;
+}
+
+.nav_links a:hover {
+    color: #c66be4;
+    text-decoration: none;
+    background-color: rgba(198, 107, 228, 0.1);
+    transform: translateY(-2px);
+}
+
+.book1_now a {
+    text-decoration: none;
+    background-color: white;
+    color: black;
+    padding: 0px 8px;
+    /* Add some padding to the button */
+    border: none;
+    /* Remove any default border */
+    display: block;
+    /* Make it a block-level element */
+    margin: 0 30px 0;
+    /* Add margin top, auto left/right, and 0 bottom */
+    width: fit-content;
+    /* Make the button width fit the content */
+    border-radius: 5px;
+    /* Add rounded corners */
+    transition: background-color 0.1s ease;
+    /* Add a smooth transition effect */
+    font-size: 30px;
+}
+
+.book1_now a:hover {
+    background-color: #c66be4;
+    color: white;
+    border: white 1px solid;
+    box-shadow: 0 0 15px rgba(198, 107, 228, 0.4);
+}

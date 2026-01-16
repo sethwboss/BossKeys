@@ -1,29 +1,34 @@
-
-@import url('https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400..700;1,400..700&family=Roboto+Slab:wght@100..900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400..700;1,400..700&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Roboto+Slab:wght@100..900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+@import "header.css";
+@import "footer.css";
 
 :root {
-    /* change the values below to your colors from your palette */
-    --primary-color: #0b4cb0;
-    --secondary-color: #c66be4;
-    --accent1-color: #3b2044;
-    --accent2-color: black;
-  
-    /* change the values below to your chosen font(s) */
-    --heading-font: "Open Sans", sans-serif;
-    --paragraph-font: Lora, "Roboto Slab", sans-serif;
-  
-    /* these colors below should be chosen from among your palette colors above */
-    --headline-color-on-white: #3b2044;  /* headlines on a white background */ 
-    --headline-color-on-color: white; /* headlines on a colored background */ 
-    --paragraph-color-on-white: black;; /* paragraph text on a white background */ 
-    --paragraph-color-on-color: white; /* paragraph text on a colored background */ 
-    --paragraph-background-color: #0b4cb0;
-    --nav-link-color: white;
-    --nav-background-color: #3b2044;
-    --nav-hover-link-color: black;
-    --nav-hover-background-color: #c66be4;
-  }
+  /* change the values below to your colors from your palette */
+  --primary-color: #0b4cb0;
+  --secondary-color: #c66be4;
+  --accent1-color: #3b2044;
+  --accent2-color: black;
+
+  /* change the values below to your chosen font(s) */
+  --heading-font: "Open Sans", sans-serif;
+  --paragraph-font: Lora, "Roboto Slab", sans-serif;
+
+  /* these colors below should be chosen from among your palette colors above */
+  --headline-color-on-white: #3b2044;
+  /* headlines on a white background */
+  --headline-color-on-color: white;
+  /* headlines on a colored background */
+  --paragraph-color-on-white: black;
+  ;
+  /* paragraph text on a white background */
+  --paragraph-color-on-color: white;
+  /* paragraph text on a colored background */
+  --paragraph-background-color: #0b4cb0;
+  --nav-link-color: white;
+  --nav-background-color: #3b2044;
+  --nav-hover-link-color: black;
+  --nav-hover-background-color: #c66be4;
+}
 
 
 
@@ -36,103 +41,55 @@
 
 
 body {
-    background-color: black;
-    color: white;
-    margin: 0;
-    padding: 0;
+  background-color: black;
+  color: white;
+  margin: 0;
+  padding: 0;
 }
 
-body, html {
-    height: 100%;
-  }
+body,
+html {
+  height: 100%;
+}
 
 
-  h1, h2, h3, h4, h5, h6 {
-    font-family: var(--heading-font);
-  }
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--heading-font);
+}
 
 h1 {
-    font-size: 100px;
+  font-size: 100px;
 }
 
 h2 {
-    font-size: 40px;
+  font-size: 50px;
 }
 
 h3 {
-    font-size: 20px;
+  font-size: 20px;
 }
 
-  p {
-    font-family: var(--paragraph-font);
-    line-height: 1.5;
-  }
-  
-
-
-
-
-  .transition0 {
-    background-color: black;
-    color: black;
-    height: 100px;
-    z-index: 2;
-  }
-
-  
-
-nav {
-    display: flex;
-    justify-content: space-evenly;
-    width: 100%;
-    height: 150px;  /* Set the desired height here */
-    box-sizing: border-box;
-    background-image: linear-gradient(to bottom, #0b4cb0, black); 
-    padding: 10px;
-    align-items: center; /* Add this line to vertically center the items */
-    border: rgb(24, 24, 24) solid 1px;
+p {
+  font-family: var(--paragraph-font);
+  line-height: 1.5;
 }
 
 
-.piano-logo {
-    width: 100px;
-    margin: auto 30px auto 10px;
-}
 
 
-.nav_links a {
-    color: white;
-    text-decoration: none;
-    padding: 10px 10px;
-    font-size: 40px;
-}
 
-.nav_links a:hover {
-    color: black;
-    text-decoration: none;
-    background-color: white;
-}
-
-
-.book1_now a {
-  text-decoration: none;
-  background-color: white;
+.transition0 {
+  background-color: black;
   color: black;
-  padding: 0px 8px; /* Add some padding to the button */
-  border: none; /* Remove any default border */
-  display: block; /* Make it a block-level element */
-  margin: 0 30px 0; /* Add margin top, auto left/right, and 0 bottom */
-  width: fit-content; /* Make the button width fit the content */
-  border-radius: 5px; /* Add rounded corners */
-  transition: background-color 0.1s ease; /* Add a smooth transition effect */
-  font-size: 30px;
+  height: 100px;
+  z-index: 2;
 }
 
-  .book1_now a:hover {
-    background-color: #0b4cb0; /* Darken the background on hover */
-    color: white;
-    border: white 1px solid;
-  }
 
 
 
@@ -142,12 +99,14 @@ nav {
 
 
 
-  .transition0 {
-    background-color: black;
-    color: black;
-    height: 100px;
-    z-index: 2;
-  }
+
+
+.transition0 {
+  background-color: black;
+  color: black;
+  height: 100px;
+  z-index: 2;
+}
 
 
 
@@ -161,24 +120,24 @@ nav {
 
 /* The hero image */
 .hero-image {
-    /* Use "linear-gradient" to add a darken background effect to the image (photographer.jpg). This will make the text easier to read */
-    background-image: url("../images/grand_piano1original.jpg");
-  
-    /* Set a specific height */
-    height: 800px;
-    width: 100%;
-  
-    /* Position and center the image to scale nicely on all screens */
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-    position: relative;
+  /* Use "linear-gradient" to add a darken background effect to the image (photographer.jpg). This will make the text easier to read */
+  background-image: url("../images/grand_piano1original.jpg");
 
-    z-index: 0;
+  /* Set a specific height */
+  height: 800px;
+  width: 100%;
 
-    margin-top: 100px;
+  /* Position and center the image to scale nicely on all screens */
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
 
-  }
+  z-index: 0;
+
+  margin-top: 100px;
+
+}
 
 
 /* Place text in the middle of the image */
@@ -188,27 +147,28 @@ nav {
   position: absolute;
   top: 11%;
   left: 35%;
-  transform: translate(-50%, -50%); /* Add this */
+  transform: translate(-50%, -50%);
+  /* Add this */
 }
 
 .hero-text h1 {
-    margin-bottom: 0;
+  margin-bottom: 0;
 }
 
 .hero-text p {
-    text-align: left;
-    padding: 0px 0px 0px 0px;
-    margin-top: 30px;
+  text-align: left;
+  padding: 0px 0px 0px 0px;
+  margin-top: 30px;
 }
 
-.hero-text p { 
-    display: inline-block;
-      background-color: black;
-      font-size: 20px;
-      white-space: pre-line;
-      line-height: 1;
-      margin-bottom: 3px;
-    }
+.hero-text p {
+  display: inline-block;
+  background-color: black;
+  font-size: 20px;
+  white-space: pre-line;
+  line-height: 1;
+  margin-bottom: 3px;
+}
 
 
 /*linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), */
@@ -226,7 +186,6 @@ nav {
 
 
 
-  
 
 
 
@@ -235,97 +194,36 @@ nav {
 
 
 
-  .container1 {
-    display: grid;
-    grid-template-columns: 1fr 1fr; /* Two equal-width columns */
-    gap: 20px; /* Adjust spacing between grid items */
-  }
-  
-  .image-left img {
-    grid-column: 1; /* Span the first column */
-    border: 7px white solid;
-    margin: 0 0 0 10px;
-  }
-  
-  .text-right {
-    grid-column: 2; /* Span the second column */
-  }
-  
-  .text-top {
-    /* Style your text content here */
-  }
-  
-  .image-right {
-    /* Style your second image here */
-    max-width: 100%; 
-    height: auto; /* Maintain aspect ratio */
-  }
 
-
-
-
-
-
-
-
-  footer {
-    margin: 100px auto;
-    background-image: linear-gradient(to top, #663399, black); 
-    color: white;
-    padding: 20px; 
-    text-align: center; /* Center align all content */
-    border: rgb(37, 37, 37) solid 1px;
-  }
-  
-  footer h2 {
-    margin-bottom: 10px; /* Add space below the headings */
-    text-decoration: underline;
-  }
-  
- footer {
-  padding: 10px; 
-  text-align: center; 
+.container1 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  /* Two equal-width columns */
+  gap: 20px;
+  /* Adjust spacing between grid items */
 }
 
-footer h2 {
-  margin-bottom: 5px; 
-  line-height: 1.2;
-  text-decoration: underline;
+.image-left img {
+  grid-column: 1;
+  /* Span the first column */
+  border: 7px white solid;
+  margin: 0 0 0 10px;
 }
 
-footer a {
-  color: white; 
-  text-decoration: none; 
-  display: inline-block; 
-  margin: 5px; 
+.text-right {
+  grid-column: 2;
+  /* Span the second column */
 }
 
-footer .container {
-  margin-top: 10px; 
+
+
+.image-right {
+  /* Style your second image here */
+  max-width: 100%;
+  height: auto;
+  /* Maintain aspect ratio */
 }
 
-footer .footerpictures {
-  width: 30px;  
-  vertical-align: middle; 
-  margin-right: 5px; 
-  padding: 5px;
-}
-
-footer a:last-of-type { 
-  background-color: white;
-  color: black;
-  padding: 8px 15px; 
-  border: none; 
-  display: block; 
-  margin: 20px auto 0; /* Reduced top margin */
-  width: fit-content; 
-  border-radius: 5px; 
-  transition: background-color 0.3s ease; 
-}
-
-  footer a:last-of-type:hover {
-    background-color: #ddd; /* Darken the background on hover */
-  }
 
 
 
@@ -334,7 +232,15 @@ footer a:last-of-type {
 
 
 
-  /* Turn off parallax scrolling for all tablets and phones. Increase/decrease the pixels if needed
+
+
+
+
+
+
+
+
+/* Turn off parallax scrolling for all tablets and phones. Increase/decrease the pixels if needed
 @media only screen and (max-device-width: 1366px) {
     .parallax {
       background-attachment: scroll;
