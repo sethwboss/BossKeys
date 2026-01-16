@@ -2,19 +2,26 @@
 @import "header.css";
 @import "footer.css";
 
+* {
+  box-sizing: border-box;
+}
+
 :root {
-  --primary-color: #6b21a8;
-  --primary-dark: #3b0764;
-  --secondary-color: #c66be4;
+  --primary-color: #d4af37;
+  /* Metallic Gold */
+  --primary-dark: #1a1a1a;
+  --secondary-color: #f9e29f;
+  /* Light Gold */
   --accent-cyan: #00d2ff;
   --glass-bg: rgba(22, 22, 26, 0.7);
-  --glass-border: rgba(198, 107, 228, 0.2);
+  --glass-border: rgba(212, 175, 55, 0.2);
+  /* Gold tint border */
 
   --heading-font: "Open Sans", sans-serif;
-  --paragraph-font: Lora, "Roboto Slab", sans-serif;
+  --paragraph-font: Roboto, "Roboto Slab", sans-serif;
 
-  --purple-gradient: linear-gradient(135deg, #3b0764 0%, #6b21a8 100%);
-  --purple-glow: 0 0 20px rgba(107, 33, 168, 0.4);
+  --gold-gradient: linear-gradient(135deg, #1a1a1a 0%, #d4af37 100%);
+  --gold-glow: 0 0 20px rgba(212, 175, 55, 0.4);
 }
 
 
@@ -33,9 +40,6 @@ body {
   margin: 0;
   padding: 0;
   overflow-x: hidden;
-  background-image:
-    radial-gradient(circle at 10% 20%, rgba(59, 7, 100, 0.15) 0%, transparent 40%),
-    radial-gradient(circle at 90% 80%, rgba(107, 33, 168, 0.1) 0%, transparent 40%);
   background-attachment: fixed;
   font-family: var(--paragraph-font);
 }
@@ -44,6 +48,13 @@ body,
 html {
   height: 100%;
   scroll-behavior: smooth;
+  margin: 0;
+  padding: 0;
+}
+
+main {
+  margin-top: 100px;
+  /* Offset for fixed header */
 }
 
 
@@ -107,6 +118,11 @@ p {
   align-items: center;
   justify-content: center;
   position: relative;
+  background-color: black;
+}
+
+.hero-section {
+  background-image: url("../images/grand_piano1original.jpg");
 }
 
 .hero-section::before {
@@ -116,7 +132,8 @@ p {
   left: 0;
   width: 100%;
   height: 100%;
-  background: radial-gradient(circle at center, rgba(59, 7, 100, 0.4), black 80%);
+  background: radial-gradient(circle at center, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.9) 80%);
+  z-index: 1;
 }
 
 .hero-content {
@@ -133,12 +150,12 @@ p {
   letter-spacing: 5px;
   margin: 0;
   color: white;
-  text-shadow: 0 0 30px rgba(198, 107, 228, 0.5);
+  text-shadow: 0 0 30px rgba(212, 175, 55, 0.5);
 }
 
 .subtitle {
   font-size: clamp(1.2rem, 3vw, 2.5rem);
-  color: #c66be4;
+  color: var(--primary-color);
   margin-top: -10px;
   font-weight: 300;
   letter-spacing: 2px;
@@ -161,18 +178,35 @@ p {
   display: block;
   font-size: 2.5rem;
   font-weight: 800;
-  color: white;
+  color: var(--primary-color);
 }
 
 
-.grid-container {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 60px;
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 80px 40px;
+.hero-cta {
+  margin-top: 50px;
+}
+
+.repertoire-section {
+  background: black;
+  min-height: auto;
+  padding: 100px 0;
+  display: flex;
   align-items: center;
+  justify-content: center;
+}
+
+.content-section {
+  padding: 100px 0;
+}
+
+.grid-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  margin: 0 auto;
+  padding: 0;
+  /* Vertical spacing handled by section padding */
 }
 
 .section-card {
@@ -181,13 +215,15 @@ p {
   border: 1px solid var(--glass-border);
   border-radius: 20px;
   padding: 50px;
+  width: 90%;
+  max-width: 900px;
   box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .section-card:hover {
   transform: translateY(-5px);
-  box-shadow: 0 30px 60px rgba(107, 33, 168, 0.2);
+  box-shadow: 0 30px 60px rgba(212, 175, 55, 0.2);
 }
 
 .about-me {
@@ -206,8 +242,13 @@ p {
   gap: 40px;
 }
 
-.bio-text p {
+.section-card p,
+.hero-text-overlay p {
   font-size: 1.25rem;
+  margin-bottom: 20px;
+}
+
+.bio-text p {
   margin-bottom: 15px;
 }
 
@@ -230,12 +271,25 @@ p {
   z-index: 10;
   text-align: center;
   color: white;
-  max-width: 800px;
-  padding: 40px;
+  width: 90%;
+  max-width: 900px;
+  padding: 50px;
+  background: var(--glass-bg);
+  backdrop-filter: blur(12px);
+  border: 1px solid var(--glass-border);
+  border-radius: 20px;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.hero-text-overlay:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 30px 60px rgba(212, 175, 55, 0.2);
 }
 
 .hero-text-overlay h2 {
-  font-size: 4rem;
+  font-size: 50px;
+  /* Standardized with other h2s */
   margin-bottom: 20px;
 }
 
@@ -246,7 +300,7 @@ p {
 }
 
 .pricing strong {
-  color: #c66be4;
+  color: var(--primary-color);
   font-size: 2rem;
 }
 
@@ -289,7 +343,8 @@ p {
   left: 0;
   width: 100%;
   height: 100%;
-  background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(59, 7, 100, 0.4));
+  background: rgba(0, 0, 0, 0.4);
+  /* Brighter (was 0.7) */
 }
 
 
@@ -317,9 +372,9 @@ p {
 
 
 .transition {
-  background-image: linear-gradient(to bottom, #0a0a0c, #3b0764);
+  background: transparent;
   color: white;
-  padding: 100px 0;
+  padding: 0;
   position: relative;
   z-index: 1;
 }
@@ -347,27 +402,24 @@ p {
   text-decoration: none;
   background-color: white;
   color: black;
-  padding: 8px 15px;
-  /* Add some padding to the button */
-  border: none;
-  /* Remove any default border */
+  font-family: var(--heading-font);
+  padding: 12px 30px;
+  border: 2px solid transparent;
   display: block;
-  /* Make it a block-level element */
-  margin: 80px auto 0;
-  /* Add margin top, auto left/right, and 0 bottom */
+  margin: 50px auto 0;
   width: fit-content;
-  /* Make the button width fit the content */
-  border-radius: 5px;
-  /* Add rounded corners */
-  transition: background-color 0.3s ease;
-  /* Add a smooth transition effect */
+  border-radius: 15px;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  font-size: 24px;
+  font-weight: 600;
 }
 
 .book_now a:hover {
   background-color: var(--primary-color);
   color: white;
-  border: 1px solid white;
-  box-shadow: var(--purple-glow);
+  border-color: white;
+  transform: scale(1.05);
+  box-shadow: 0 10px 20px rgba(212, 175, 55, 0.3), 0 0 15px rgba(212, 175, 55, 0.4);
 }
 
 
@@ -406,12 +458,13 @@ p {
 }
 
 ::-webkit-scrollbar-thumb {
-  background: var(--primary-dark);
+  background: #333;
+  /* Neutral gray for a professional look */
   border-radius: 5px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: var(--primary-color);
+  background: #444;
 }
 
 /* Responsiveness */
@@ -429,15 +482,31 @@ p {
     font-size: 1.8rem;
   }
 
-  .section-card {
-    padding: 30px;
-  }
-
-  .card-content {
-    flex-direction: column;
-  }
-
   .hero-text-overlay h2 {
     font-size: 2.5rem;
+  }
+
+  .grid-container {
+    padding: 40px 20px;
+  }
+
+  .section-card {
+    padding: 30px;
+    width: 95%;
+  }
+
+  .hero-text-overlay {
+    width: 95%;
+    padding: 30px;
+  }
+}
+
+@media (max-width: 1000px) {
+  .hero-stats {
+    gap: 20px;
+  }
+
+  h1 {
+    font-size: 80px;
   }
 }

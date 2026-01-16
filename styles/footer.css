@@ -4,21 +4,36 @@ footer {
     padding: 20px 20px 40px;
     text-align: center;
     border: rgb(37, 37, 37) solid 1px;
-    border-top: 2px solid rgb(37, 37, 37);
+    border-top: 2px solid rgba(212, 175, 55, 0.4);
     margin-top: 50px;
 }
 
 footer h2 {
     margin-bottom: 20px;
     text-decoration: none;
+    text-transform: none;
+    font-family: var(--heading-font);
+    letter-spacing: normal;
 }
 
 footer p {
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 10px;
-    margin: 10px 0;
+    gap: 15px;
+    margin: 15px 0;
+    color: white;
+    font-family: var(--paragraph-font);
+    /* Matches body text */
+    font-size: 1.25rem;
+    /* Matches 'Raised in Saginaw' size */
+}
+
+
+
+footer>p:last-child {
+    font-size: 1rem;
+    opacity: 0.8;
 }
 
 .links-container {
@@ -36,16 +51,17 @@ footer p {
     border-radius: 50px;
     transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     font-size: 1.1rem;
+    font-family: var(--heading-font);
     letter-spacing: 0.5px;
     border: 1px solid transparent;
 }
 
 .footerlinks:hover {
-    background: rgba(0, 210, 255, 0.1);
-    border-color: rgba(0, 210, 255, 0.3);
-    color: #00d2ff;
+    background: rgba(212, 175, 55, 0.1);
+    border-color: rgba(212, 175, 55, 0.3);
+    color: var(--primary-color);
     transform: translateY(-5px);
-    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.3), 0 0 15px rgba(0, 210, 255, 0.3);
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.3), 0 0 15px rgba(212, 175, 55, 0.3);
 }
 
 .footerpictures {
@@ -73,10 +89,10 @@ footer p {
 }
 
 .copy-btn:hover {
-    background: rgba(0, 210, 255, 0.2);
-    border-color: rgba(0, 210, 255, 0.4);
+    background: rgba(212, 175, 55, 0.2);
+    border-color: rgba(212, 175, 55, 0.4);
     transform: scale(1.05);
-    box-shadow: 0 0 10px rgba(0, 210, 255, 0.3);
+    box-shadow: 0 0 10px rgba(212, 175, 55, 0.3);
 }
 
 .copy-btn svg {
@@ -86,9 +102,9 @@ footer p {
 }
 
 .copy-btn.copied {
-    background: #00d2ff;
-    border-color: #00d2ff;
-    box-shadow: 0 0 10px rgba(0, 210, 255, 0.5);
+    background: var(--primary-color);
+    border-color: var(--primary-color);
+    box-shadow: 0 0 10px rgba(212, 175, 55, 0.5);
 }
 
 .copy-btn.copied svg {
