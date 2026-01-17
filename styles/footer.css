@@ -3,8 +3,7 @@ footer {
     color: white;
     padding: 20px 20px 40px;
     text-align: center;
-    border: rgb(37, 37, 37) solid 1px;
-    border-top: 2px solid rgba(212, 175, 55, 0.4);
+    border-top: 2px solid var(--glass-border);
     margin-top: 50px;
 }
 
@@ -89,16 +88,21 @@ footer>p:last-child {
 }
 
 .copy-btn:hover {
-    background: rgba(212, 175, 55, 0.2);
-    border-color: rgba(212, 175, 55, 0.4);
-    transform: scale(1.05);
-    box-shadow: 0 0 10px rgba(212, 175, 55, 0.3);
+    background: white;
+    border-color: white;
+    transform: scale(1.1);
+    box-shadow: 0 10px 20px rgba(212, 175, 55, 0.3), 0 0 15px rgba(212, 175, 55, 0.6);
 }
 
 .copy-btn svg {
     width: 16px;
     height: 16px;
     stroke: white;
+    transition: stroke 0.2s ease;
+}
+
+.copy-btn:hover svg {
+    stroke: black;
 }
 
 .copy-btn.copied {

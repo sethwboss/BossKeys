@@ -1,13 +1,14 @@
 nav {
     display: flex;
-    justify-content: space-evenly;
+    justify-content: center;
+    gap: 40px;
     width: 100%;
-    min-height: 100px;
+    min-height: 70px;
     box-sizing: border-box;
     background-image: linear-gradient(to bottom, #3b0764, black);
-    padding: 10px 40px;
+    padding: 5px 40px;
     align-items: center;
-    border-bottom: 2px solid rgba(212, 175, 55, 0.4);
+    border-bottom: 2px solid var(--glass-border);
     position: fixed;
     top: 0;
     left: 0;
@@ -48,7 +49,7 @@ nav {
     padding: 10px 2vw;
     border: 2px solid transparent;
     display: block;
-    margin: 0 10px;
+    margin: 0;
     width: fit-content;
     border-radius: 15px;
     transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
@@ -57,37 +58,60 @@ nav {
     /* Scalable font size */
     font-weight: 600;
     white-space: nowrap;
+    box-shadow: 0 0 15px rgba(212, 175, 55, 0.4);
 }
 
-@media (max-width: 800px) {
+.piano-logo {
+    width: 80px;
+    margin: 0;
+    padding: 5px 0;
+}
+
+
+@media (max-width: 700px) {
     nav {
-        flex-direction: column;
-        padding: 15px 10px;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: center;
+        column-gap: 20px;
+        row-gap: 0;
+        padding: 10px 20px;
         min-height: auto;
     }
 
     .nav_links {
-        margin: 10px 0;
-        gap: 10px;
-        justify-content: center;
+        order: 2;
         width: 100%;
+        margin: 0 0 5px;
+        gap: 15px;
+        justify-content: center;
     }
 
     .nav_links a {
-        padding: 8px 12px;
+        padding: 8px 10px;
+        font-size: 18px;
     }
 
     .piano-logo {
         margin: 0;
-        width: 70px;
+        padding: 0;
+        width: 50px;
+        display: block;
+    }
+
+    .book1_now {
+        order: 1;
+        margin: 0;
+        display: flex;
+        align-items: center;
+    }
+
+    .book1_now a {
+        padding: 8px 15px;
+        font-size: 16px;
     }
 }
 
-.piano-logo {
-    width: 100px;
-    margin: auto 30px auto 10px;
-    padding: 15px 0;
-}
 
 .book1_now a:hover {
     background-color: var(--primary-color);
