@@ -8,7 +8,7 @@ nav {
     background-image: linear-gradient(to bottom, #3b0764, black);
     padding: 5px 40px;
     align-items: center;
-    border-bottom: 2px solid var(--glass-border);
+    border-bottom: 2px solid var(--glass-border-purple);
     position: fixed;
     top: 0;
     left: 0;
