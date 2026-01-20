@@ -30,6 +30,7 @@ nav {
     font-size: clamp(16px, 2.5vw, 32px);
     /* Scalable font size */
     font-family: var(--heading-font);
+    border: 1px solid transparent;
     border-radius: 12px;
     transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     white-space: nowrap;
@@ -37,9 +38,10 @@ nav {
 
 .nav_links a:hover {
     color: var(--primary-color);
-    background-color: rgba(212, 175, 55, 0.1);
+    background-color: black;
+    border-color: white;
     transform: translateY(-3px);
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
 }
 
 .book1_now a {
@@ -47,7 +49,7 @@ nav {
     background-color: white;
     color: black;
     padding: 10px 2vw;
-    border: 2px solid transparent;
+    border: 1px solid transparent;
     display: block;
     margin: 0;
     width: fit-content;

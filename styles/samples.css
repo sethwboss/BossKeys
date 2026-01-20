@@ -103,7 +103,7 @@ p {
   font-family: var(--heading-font);
   font-size: 24px;
   padding: 12px 30px;
-  border: 2px solid transparent;
+  border: 1px solid transparent;
   display: block;
   margin: 50px auto 0;
   width: fit-content;
