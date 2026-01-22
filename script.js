@@ -1,3 +1,8 @@
+// Initialize Supabase
+const supabaseUrl = 'https://sdconinhwvanktqwcggp.supabase.co';
+const supabaseKey = 'sb_publishable_9yg2JUR0Yiu08p-expcNPg_ltclQYBi';
+const supabase = supabase.createClient(supabaseUrl, supabaseKey);
+
 function copyToClipboard(text, button) {
     navigator.clipboard.writeText(text).then(() => {
         button.classList.add('copied');
