@@ -120,18 +120,18 @@ p {
 }
 
 .hero-text p {
-  font-size: clamp(1.1rem, 2vw, 1.5rem);
-  color: white;
-  margin-top: 20px;
+  font-size: clamp(1.2rem, 3vw, 2.5rem);
+  color: var(--primary-color);
+  margin-top: 10px;
   font-weight: 300;
+  letter-spacing: 2px;
   line-height: 1.4;
   background: transparent;
-  /* Removed the black background from the old style */
 }
 
 .hero-text2 {
   max-width: 900px;
-  margin: 80px auto;
+  margin: 50px auto;
   padding: 40px;
   background: var(--glass-bg);
   backdrop-filter: blur(12px);
@@ -141,15 +141,60 @@ p {
   box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
 }
 
-.hero-text2 p {
-  color: var(--primary-color);
-  font-size: 1.25rem;
-  margin-bottom: 20px;
+.hero-text2 h2 {
+  color: white;
+  margin-bottom: 30px;
+  font-size: clamp(2rem, 5vw, 50px);
+  font-weight: 300;
 }
 
-.hero-text2 p:last-child {
+.table-container {
+  overflow-x: auto;
+  width: 100%;
+}
+
+.fees-table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+  margin: 0 auto;
   color: white;
-  margin-bottom: 0;
+  font-family: var(--paragraph-font);
+}
+
+.fees-table th,
+.fees-table td {
+  padding: 20px;
+  border-bottom: 1px solid rgba(212, 175, 55, 0.2);
+  text-align: left;
+}
+
+.fees-table th {
+  color: var(--primary-color);
+  font-family: var(--heading-font);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-weight: 600;
+  border-bottom: 2px solid var(--primary-color);
+}
+
+.fees-table tr:last-child td {
+  border-bottom: none;
+}
+
+.fees-table tr:hover td {
+  background: rgba(212, 175, 55, 0.05);
+  transition: background 0.3s ease;
+}
+
+.fees-table td:nth-child(3) {
+  font-weight: bold;
+  color: var(--primary-color);
+  text-align: right;
+}
+
+.fees-table th:nth-child(3) {
+  text-align: right;
 }
 
 /* Calendar Container */
@@ -253,4 +298,29 @@ p {
   .hero-text h1 {
     font-size: 3.5rem;
   }
+}
+
+.lesson-info-section {
+  padding: 40px 0;
+  display: flex;
+  justify-content: center;
+}
+
+.info-card {
+  background: var(--glass-bg);
+  backdrop-filter: blur(12px);
+  border: 1px solid var(--glass-border);
+  border-radius: 20px;
+  padding: 40px 50px;
+  width: 90%;
+  max-width: 900px;
+  text-align: center;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+}
+
+.info-card p {
+  font-size: 1.5rem;
+  line-height: 1.6;
+  margin: 0;
+  color: white;
 }
