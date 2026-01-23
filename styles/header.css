@@ -37,7 +37,7 @@ nav {
 }
 
 .nav_links a:hover {
-    background-color: var(--primary-color);
+    background-color: var(--secondary-color);
     color: white;
     transform: scale(1.05);
     box-shadow: 0 10px 20px rgba(212, 175, 55, 0.3), 0 0 15px rgba(212, 175, 55, 0.4);
@@ -115,7 +115,7 @@ nav {
 
 
 .book1_now a:hover {
-    background-color: var(--primary-color);
+    background-color: var(--secondary-color);
     color: white;
     border-color: white;
     transform: scale(1.05);

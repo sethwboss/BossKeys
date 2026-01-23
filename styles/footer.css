@@ -12,6 +12,7 @@ footer h2 {
     text-decoration: none;
     text-transform: none;
     font-family: var(--heading-font);
+    font-weight: 500;
     letter-spacing: normal;
 }
 
@@ -22,10 +23,10 @@ footer p {
     gap: 15px;
     margin: 15px 0;
     color: white;
-    font-family: var(--paragraph-font);
-    /* Matches body text */
+    font-family: var(--heading-font);
     font-size: 1.25rem;
-    /* Matches 'Raised in Saginaw' size */
+    font-weight: 500;
+    letter-spacing: normal;
 }
 
 
@@ -118,22 +119,24 @@ footer>p:last-child {
 .copy-btn::after {
     content: 'Copied!';
     position: absolute;
-    top: -30px;
+    top: -48px;
     left: 50%;
     transform: translateX(-50%);
     background: #333;
     color: white;
-    padding: 4px 8px;
-    border-radius: 4px;
-    font-size: 12px;
+    padding: 6px 12px;
+    border-radius: 6px;
+    font-size: 1.25rem;
     opacity: 0;
     visibility: hidden;
     transition: all 0.2s ease;
     white-space: nowrap;
+    font-family: var(--heading-font);
+    font-weight: 500;
 }
 
 .copy-btn.copied::after {
     opacity: 1;
     visibility: visible;
-    top: -35px;
+    top: -53px;
 }

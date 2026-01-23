@@ -10,8 +10,8 @@
   --primary-color: #d4af37;
   /* Metallic Gold */
   --primary-dark: #1a1a1a;
-  --secondary-color: #f9e29f;
-  /* Light Gold */
+  --secondary-color: #ac8402;
+  /* Darker Gold */
   --accent-cyan: #00d2ff;
   --glass-bg: rgba(22, 22, 26, 0.7);
   --glass-border: rgba(48, 40, 13, 1);
@@ -66,7 +66,7 @@ h1 {
 
 h2 {
   font-size: clamp(2rem, 5vw, 50px);
-  font-weight: 300;
+  font-weight: 500;
 }
 
 h3 {
@@ -122,7 +122,7 @@ p {
 .hero-text p {
   font-size: clamp(1.2rem, 3vw, 2.5rem);
   color: var(--primary-color);
-  margin-top: 10px;
+  margin-top: -10px;
   font-weight: 300;
   letter-spacing: 2px;
   line-height: 1.4;
@@ -145,7 +145,6 @@ p {
   color: white;
   margin-bottom: 30px;
   font-size: clamp(2rem, 5vw, 50px);
-  font-weight: 300;
 }
 
 .table-container {
@@ -271,12 +270,16 @@ p {
 }
 
 .book_now a:hover {
-  background-color: var(--primary-color);
+  background-color: var(--secondary-color);
   color: white;
   border-color: white;
   transform: scale(1.05);
   box-shadow: 0 10px 20px rgba(212, 175, 55, 0.3), 0 0 15px rgba(212, 175, 55, 0.4);
 }
+
+
+
+
 
 /* Responsiveness */
 @media (max-width: 900px) {
