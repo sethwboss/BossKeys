@@ -1,7 +1,8 @@
 // Initialize Supabase
 const supabaseUrl = 'https://sdconinhwvanktqwcggp.supabase.co';
 const supabaseKey = 'sb_publishable_9yg2JUR0Yiu08p-expcNPg_ltclQYBi';
-const supabase = supabase.createClient(supabaseUrl, supabaseKey);
+// Use window.supabase to ensure we are accessing the global library
+const supabaseClient = window.supabase ? window.supabase.createClient(supabaseUrl, supabaseKey) : null;
 
 function copyToClipboard(text, button) {
     navigator.clipboard.writeText(text).then(() => {
@@ -43,4 +44,90 @@ document.addEventListener('DOMContentLoaded', () => {
         const trainingYears = age - 6;
         trainingSpan.textContent = `${trainingYears}+`;
     }
+
+    // Custom Audio Player Logic
+    const players = document.querySelectorAll('.audio-player');
+    const allAudioLinks = []; // Track all audio instances
+
+    players.forEach(player => {
+        const audioSrc = player.getAttribute('data-src');
+        const audio = new Audio(audioSrc);
+        allAudioLinks.push(audio);
+        const playPauseBtn = player.querySelector('.play-pause-btn');
+        const playIcon = player.querySelector('.play-icon');
+        const pauseIcon = player.querySelector('.pause-icon');
+        const seekSlider = player.querySelector('.audio-seek');
+        const timeDisplay = player.querySelector('.audio-time');
+        const waveformContainer = player.querySelector('.waveform-container');
+
+        // Generate pseudo-waveform bars
+        const numBars = 80;
+        const bars = [];
+        for (let i = 0; i < numBars; i++) {
+            const bar = document.createElement('div');
+            bar.className = 'waveform-bar';
+            const height = Math.floor(Math.random() * 70) + 10;
+            bar.style.setProperty('--height', `${height}%`);
+            waveformContainer.appendChild(bar);
+            bars.push(bar);
+        }
+
+        // Toggle Play/Pause
+        playPauseBtn.addEventListener('click', () => {
+            if (audio.paused) {
+                // Pause all other tracks
+                allAudioLinks.forEach(a => {
+                    if (a !== audio) a.pause();
+                });
+                audio.play();
+                playIcon.style.display = 'none';
+                pauseIcon.style.display = 'block';
+            } else {
+                audio.pause();
+                playIcon.style.display = 'block';
+                pauseIcon.style.display = 'none';
+            }
+        });
+
+        // Listen for pause on this audio (triggered by play on another audio)
+        audio.addEventListener('pause', () => {
+            playIcon.style.display = 'block';
+            pauseIcon.style.display = 'none';
+        });
+
+        // Update progress
+        audio.addEventListener('timeupdate', () => {
+            const progress = (audio.currentTime / audio.duration) * 100;
+            seekSlider.value = progress || 0;
+
+            const mins = Math.floor(audio.currentTime / 60);
+            const secs = Math.floor(audio.currentTime % 60);
+            timeDisplay.textContent = `${mins}:${secs.toString().padStart(2, '0')}`;
+
+            const activeCount = Math.floor((progress / 100) * numBars);
+            bars.forEach((bar, index) => {
+                if (index < activeCount) {
+                    bar.classList.add('active');
+                } else {
+                    bar.classList.remove('active');
+                }
+            });
+        });
+
+        // Seek functionality
+        seekSlider.addEventListener('input', () => {
+            if (!isNaN(audio.duration)) {
+                const time = (seekSlider.value / 100) * audio.duration;
+                audio.currentTime = time;
+            }
+        });
+
+        // Reset when finished
+        audio.addEventListener('ended', () => {
+            playIcon.style.display = 'block';
+            pauseIcon.style.display = 'none';
+            seekSlider.value = 0;
+            bars.forEach(bar => bar.classList.remove('active'));
+        });
+    });
 });

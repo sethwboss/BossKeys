@@ -181,6 +181,7 @@ p {
   margin-top: -10px;
   font-weight: 300;
   letter-spacing: 2px;
+  text-transform: none;
 }
 
 .hero-stats {

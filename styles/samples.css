@@ -2,6 +2,10 @@
 @import "header.css";
 @import "footer.css";
 
+* {
+  box-sizing: border-box;
+}
+
 :root {
   --primary-color: #d4af37;
   /* Metallic Gold */
@@ -178,11 +182,11 @@ p {
 .firstlist {
   list-style: none;
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(550px, 1fr));
   gap: 40px;
-  max-width: 1200px;
+  max-width: 1400px;
   margin: 80px auto;
-  padding: 0 20px;
+  padding: 0 40px;
 }
 
 .firstlist li {
@@ -206,75 +210,105 @@ p {
   box-shadow: 0 30px 60px rgba(212, 175, 55, 0.2);
 }
 
-.video-facade {
-  width: 100%;
-  aspect-ratio: 16/9;
-  position: relative;
-  border-radius: 12px;
-  overflow: hidden;
-  cursor: pointer;
+/* Custom Audio Player */
+.audio-player {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  background: var(--glass-bg);
+  backdrop-filter: blur(12px);
   border: 1px solid var(--glass-border);
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
-  background: #000;
-}
-
-.video-facade .thumbnail {
+  padding: 15px 35px;
+  border-radius: 60px;
   width: 100%;
-  height: 100%;
-  object-fit: cover;
-  transition: transform 0.5s ease;
+  max-width: 100%;
+  margin-top: 15px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+  transition: all 0.3s ease;
 }
 
-.video-facade:hover .thumbnail {
-  transform: scale(1.05);
-  opacity: 0.8;
+.audio-player:hover {
+  border-color: var(--primary-color);
 }
 
-.play-button {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 70px;
-  height: 70px;
-  background: rgba(0, 0, 0, 0.6);
-  backdrop-filter: blur(4px);
-  border: 2px solid var(--primary-color);
+.play-pause-btn {
+  background: var(--primary-color);
+  border: none;
+  width: 60px;
+  height: 60px;
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
+  cursor: pointer;
   transition: all 0.3s ease;
-  z-index: 2;
+  flex-shrink: 0;
+  box-shadow: 0 0 15px rgba(212, 175, 55, 0.4);
 }
 
-.play-button svg {
-  width: 30px;
-  height: 30px;
-  fill: var(--primary-color);
-  margin-left: 5px;
-  /* Visual centering for triangle */
-  transition: all 0.3s ease;
+.play-pause-btn:hover {
+  transform: scale(1.1);
+  box-shadow: 0 0 25px rgba(212, 175, 55, 0.6);
 }
 
-.video-facade:hover .play-button {
+.play-pause-btn svg {
+  width: 28px;
+  height: 28px;
+  fill: #000;
+}
+
+.waveform-container {
+  flex-grow: 1;
+  height: 80px;
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 3px;
+  min-width: 0;
+  /* Prevents container from pushing out siblings */
+}
+
+.waveform-bar {
+  flex: 1;
+  min-width: 2px;
+  background: rgba(212, 175, 55, 0.2);
+  /* Muted gold base */
+  border-radius: 2px;
+  height: var(--height, 20%);
+  transition: all 0.2s ease;
+  align-self: center;
+}
+
+.waveform-bar.active {
   background: var(--primary-color);
-  box-shadow: 0 0 30px var(--primary-color);
-  transform: translate(-50%, -50%) scale(1.1);
+  box-shadow: 0 0 8px rgba(212, 175, 55, 0.4);
 }
 
-.video-facade:hover .play-button svg {
-  fill: white;
-}
-
-.video-facade iframe {
+.audio-seek {
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  border: none;
-  z-index: 3;
+  opacity: 0;
+  cursor: pointer;
+  z-index: 5;
+}
+
+.audio-time {
+  font-family: var(--heading-font);
+  font-size: 0.85rem;
+  color: var(--primary-color);
+  min-width: 45px;
+  text-align: right;
+  font-weight: 600;
+  flex-shrink: 0;
+  margin-left: auto;
+}
+
+.firstlist li,
+.ul2 li {
+  padding: 40px 30px;
 }
 
 
@@ -304,7 +338,11 @@ p {
   color: white;
   z-index: 10;
   max-width: 900px;
-  padding: 0 20px;
+  padding: 40px 30px;
+  background: rgba(0, 0, 0, 0.4);
+  backdrop-filter: blur(8px);
+  border-radius: 20px;
+  border: 1px solid var(--glass-border);
 }
 
 .hero-text2 h1 {
@@ -313,21 +351,21 @@ p {
 }
 
 .hero-text2 p {
-  font-size: clamp(1rem, 2vw, 1.5rem);
+  font-size: clamp(1.2rem, 3vw, 2.5rem);
   color: var(--primary-color);
   margin-top: 10px;
   font-weight: 300;
-  letter-spacing: 1px;
+  letter-spacing: 2px;
 }
 
 .ul2 {
   list-style: none;
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(550px, 1fr));
   gap: 40px;
-  max-width: 1200px;
+  max-width: 1400px;
   margin: 80px auto;
-  padding: 0 20px;
+  padding: 0 40px;
 }
 
 .ul2 li {
@@ -384,6 +422,16 @@ p {
   }
 }
 
+@media (max-width: 1200px) {
+
+  .firstlist,
+  .ul2 {
+    grid-template-columns: 1fr;
+    max-width: 800px;
+    gap: 30px;
+  }
+}
+
 @media (max-width: 700px) {
   main {
     margin-top: 140px;
@@ -391,12 +439,6 @@ p {
 
   h1 {
     font-size: 4rem;
-  }
-
-  .firstlist,
-  .ul2 {
-    grid-template-columns: 1fr;
-    gap: 30px;
   }
 
   .firstlist li,
