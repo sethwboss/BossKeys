@@ -46,7 +46,7 @@
     <div class="hero-image">
       <div class="hero-text">
         <h1>Seth's Samples</h1>
-        <p>Find below samples of pieces and links to performances</p>
+        <p>Explore a curated selection of my recorded piano works.</p>
       </div>
     </div>
 
@@ -87,7 +87,7 @@
           <span class="audio-time">0:00</span>
         </div>
       </li>
-      <li>2. River Flows in You
+      <li class="sample-card-bg river-item">2. River Flows in You
         <div class="audio-player"
           data-src="https://sdconinhwvanktqwcggp.supabase.co/storage/v1/object/public/songs/River%20Flows%20In%20You%20-%20Yiruma.mp4">
           <button class="play-pause-btn" aria-label="Play">
@@ -102,7 +102,7 @@
           <span class="audio-time">0:00</span>
         </div>
       </li>
-      <li>3. Raindrop Prelude
+      <li class="sample-card-bg raindrop-item">3. Raindrop Prelude
         <div class="audio-player"
           data-src="https://sdconinhwvanktqwcggp.supabase.co/storage/v1/object/public/songs/Raindrop%20Prelude%20-%20Fryderyk%20Chopin.mp4">
           <button class="play-pause-btn" aria-label="Play">
@@ -147,7 +147,7 @@
           <span class="audio-time">0:00</span>
         </div>
       </li>
-      <li>6. Waterfall
+      <li class="sample-card-bg waterfall-item">6. Waterfall
         <div class="audio-player"
           data-src="https://sdconinhwvanktqwcggp.supabase.co/storage/v1/object/public/songs/Waterfall%20-%20Jon%20Schmidt.mp4">
           <button class="play-pause-btn" aria-label="Play">
@@ -193,17 +193,23 @@
 
 
     <ul class="ul2">
-
-      <li>1. Op. 1, No. 1
-        <div class="thumbnail">
-          <a
-            href="https://flat.io/score/5df96ca4ee17177db35c9d69-op-1-no-1?sharingKey=185ca1c8dabc37e3fe0d545bfe7961ac4c023d52ae05345d7dc99ad9aecccc62f43d4928321d174f7711227a696b336760e51c2f02740100895400f8726a907f">
-            <img src="images/flatio_thumbnail.jpg" alt="flat.io thumbnail">
-          </a>
+      <li>1. Op. 1, No. 1 (2021)
+        <div class="audio-player"
+          data-src="https://sdconinhwvanktqwcggp.supabase.co/storage/v1/object/public/songs/Op.%201,%20No.%201.mp3">
+          <button class="play-pause-btn" aria-label="Play">
+            <svg viewBox="0 0 24 24">
+              <path class="play-icon" d="M8 5v14l11-7z" />
+              <path class="pause-icon" d="M6 19h4V5H6v14zm8-14v14h4V5h-4z" style="display:none;" />
+            </svg>
+          </button>
+          <div class="waveform-container">
+            <input type="range" class="audio-seek" value="0" max="100" step="0.1">
+          </div>
+          <span class="audio-time">0:00</span>
         </div>
       </li>
 
-      <li>2. Orchestral Variations on a Theme of Chopin - Seth Boss
+      <li>2. Orchestral Variations on a Theme of Chopin (2022)
         <div class="audio-player"
           data-src="https://sdconinhwvanktqwcggp.supabase.co/storage/v1/object/public/songs/Orchestral%20Variations%20on%20a%20Theme%20of%20Chopin%20-%20Seth%20Boss.mp4">
           <button class="play-pause-btn" aria-label="Play">
@@ -219,7 +225,21 @@
         </div>
       </li>
 
-
+      <li>3. Broken (2024)
+        <div class="audio-player"
+          data-src="https://sdconinhwvanktqwcggp.supabase.co/storage/v1/object/public/songs/Broken.mp3">
+          <button class="play-pause-btn" aria-label="Play">
+            <svg viewBox="0 0 24 24">
+              <path class="play-icon" d="M8 5v14l11-7z" />
+              <path class="pause-icon" d="M6 19h4V5H6v14zm8-14v14h4V5h-4z" style="display:none;" />
+            </svg>
+          </button>
+          <div class="waveform-container">
+            <input type="range" class="audio-seek" value="0" max="100" step="0.1">
+          </div>
+          <span class="audio-time">0:00</span>
+        </div>
+      </li>
     </ul>
 
 

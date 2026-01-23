@@ -66,11 +66,46 @@ document.addEventListener('DOMContentLoaded', () => {
         for (let i = 0; i < numBars; i++) {
             const bar = document.createElement('div');
             bar.className = 'waveform-bar';
-            const height = Math.floor(Math.random() * 70) + 10;
-            bar.style.setProperty('--height', `${height}%`);
+
+            // Dramatic Peak Math: use Math.pow to create more contrast
+            const randomVal = Math.random();
+            const exponentialHeight = Math.pow(randomVal, 1.8) * 92 + 3;
+
+            bar.style.setProperty('--height', `${exponentialHeight}%`);
             waveformContainer.appendChild(bar);
             bars.push(bar);
         }
+
+        // Update visual waveform
+        function updateWaveform(progress) {
+            const activeCount = Math.floor((progress / 100) * numBars);
+            bars.forEach((bar, index) => {
+                if (index < activeCount) {
+                    bar.classList.add('active');
+                } else {
+                    bar.classList.remove('active');
+                }
+            });
+        }
+
+        let isHovering = false;
+        waveformContainer.addEventListener('mousemove', (e) => {
+            isHovering = true;
+            const rect = waveformContainer.getBoundingClientRect();
+            const x = e.clientX - rect.left;
+            const progress = Math.min(Math.max((x / rect.width) * 100, 0), 100);
+            updateWaveform(progress);
+        });
+
+        waveformContainer.addEventListener('mouseleave', () => {
+            isHovering = false;
+            if (audio.duration) {
+                const progress = (audio.currentTime / audio.duration) * 100;
+                updateWaveform(progress);
+            } else {
+                updateWaveform(0);
+            }
+        });
 
         // Toggle Play/Pause
         playPauseBtn.addEventListener('click', () => {
@@ -97,28 +132,34 @@ document.addEventListener('DOMContentLoaded', () => {
 
         // Update progress
         audio.addEventListener('timeupdate', () => {
-            const progress = (audio.currentTime / audio.duration) * 100;
-            seekSlider.value = progress || 0;
+            if (audio.duration) {
+                const progress = (audio.currentTime / audio.duration) * 100;
+                seekSlider.value = progress || 0;
 
-            const mins = Math.floor(audio.currentTime / 60);
-            const secs = Math.floor(audio.currentTime % 60);
-            timeDisplay.textContent = `${mins}:${secs.toString().padStart(2, '0')}`;
+                const mins = Math.floor(audio.currentTime / 60);
+                const secs = Math.floor(audio.currentTime % 60);
+                timeDisplay.textContent = `${mins}:${secs.toString().padStart(2, '0')}`;
 
-            const activeCount = Math.floor((progress / 100) * numBars);
-            bars.forEach((bar, index) => {
-                if (index < activeCount) {
-                    bar.classList.add('active');
-                } else {
-                    bar.classList.remove('active');
+                if (!isHovering) {
+                    updateWaveform(progress);
                 }
-            });
+            }
         });
 
-        // Seek functionality
-        seekSlider.addEventListener('input', () => {
-            if (!isNaN(audio.duration)) {
-                const time = (seekSlider.value / 100) * audio.duration;
-                audio.currentTime = time;
+        // Seek Functionality (changed back to 'change' for better performance)
+        seekSlider.addEventListener('change', () => {
+            if (audio.duration && !isNaN(audio.duration)) {
+                audio.currentTime = (seekSlider.value / 100) * audio.duration;
+
+                // Start playing if paused when seeking
+                if (audio.paused) {
+                    allAudioLinks.forEach(a => {
+                        if (a !== audio) a.pause();
+                    });
+                    audio.play();
+                    playIcon.style.display = 'none';
+                    pauseIcon.style.display = 'block';
+                }
             }
         });
 
@@ -127,7 +168,7 @@ document.addEventListener('DOMContentLoaded', () => {
             playIcon.style.display = 'block';
             pauseIcon.style.display = 'none';
             seekSlider.value = 0;
-            bars.forEach(bar => bar.classList.remove('active'));
+            updateWaveform(0);
         });
     });
 });
