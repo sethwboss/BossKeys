@@ -225,6 +225,38 @@ p {
   background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("../images/samples/Waterfall.jpg") !important;
 }
 
+.nuvole-item {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("../images/samples/White Clouds.png") !important;
+}
+
+.allofme-item {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("../images/samples/All of Me.png") !important;
+}
+
+.broken-item {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("../images/samples/Broken.png") !important;
+}
+
+.garden-item {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("../images/samples/Garden Waltz.png") !important;
+}
+
+.moon-item {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("../images/samples/Moon.png") !important;
+}
+
+.moon2-item {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("../images/samples/Moon2.png") !important;
+}
+
+.orchestra-item {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("../images/samples/Orchestra.png") !important;
+}
+
+.opus1-item {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("../images/samples/Opus1.png") !important;
+}
+
 .raindrop-item {
   background-image: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0)), url("../images/samples/Raindrop.png") !important;
 }
@@ -255,6 +287,12 @@ p {
   transition: all 0.3s ease;
 }
 
+.firstlist li:hover .audio-player,
+.ul2 li:hover .audio-player {
+  border-color: var(--primary-color);
+  box-shadow: 0 0 20px rgba(212, 175, 55, 0.3);
+}
+
 .play-pause-btn {
   background: var(--primary-color);
   border: none;
@@ -273,6 +311,12 @@ p {
 .play-pause-btn:hover {
   transform: scale(1.1);
   box-shadow: 0 0 25px rgba(212, 175, 55, 0.6);
+  background: #000;
+  border: 2px solid var(--primary-color);
+}
+
+.play-pause-btn:hover svg {
+  fill: var(--primary-color);
 }
 
 .play-pause-btn svg {
@@ -395,7 +439,7 @@ p {
 }
 
 .ul2 li {
-  background: var(--glass-bg);
+  background-color: var(--glass-bg);
   backdrop-filter: blur(12px);
   border: 1px solid var(--glass-border);
   border-radius: 20px;

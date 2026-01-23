@@ -15,7 +15,7 @@
   <header>
     <nav>
       <a href="index.html">
-        <img src="images/piano_logo200px.png" alt="BossKeys logo" class="piano-logo">
+        <img src="images/small/piano_logo200px.png" alt="BossKeys logo" class="piano-logo">
       </a>
 
       <div class="nav_links">
@@ -34,11 +34,6 @@
   </header>
 
 
-  <div class="transition0"></div>
-
-
-
-
   <main>
 
 
@@ -46,7 +41,7 @@
     <div class="hero-image">
       <div class="hero-text">
         <h1>Seth's Samples</h1>
-        <p>Explore a curated selection of my recorded piano works.</p>
+        <p>Explore curated sections of his recorded piano works.</p>
       </div>
     </div>
 
@@ -71,7 +66,7 @@
         -->
 
     <ul class="firstlist">
-      <li>
+      <li class="sample-card-bg nuvole-item">
         1. Nuvole Bianche
         <div class="audio-player"
           data-src="https://sdconinhwvanktqwcggp.supabase.co/storage/v1/object/public/songs/Nuvole%20Bianche%20-%20Ludovico%20Einaudi.mp4">
@@ -117,7 +112,7 @@
           <span class="audio-time">0:00</span>
         </div>
       </li>
-      <li>4. Moonlight Sonata 1st Movement
+      <li class="sample-card-bg moon-item">4. Moonlight Sonata 1st Movement
         <div class="audio-player"
           data-src="https://sdconinhwvanktqwcggp.supabase.co/storage/v1/object/public/songs/Moonlight%20Sonata%201st%20Movement%20-%20Ludwig%20van%20Beethoven.mp4">
           <button class="play-pause-btn" aria-label="Play">
@@ -132,7 +127,7 @@
           <span class="audio-time">0:00</span>
         </div>
       </li>
-      <li>5. Moonlight Sonata 2nd Movement
+      <li class="sample-card-bg moon2-item">5. Moonlight Sonata 2nd Movement
         <div class="audio-player"
           data-src="https://sdconinhwvanktqwcggp.supabase.co/storage/v1/object/public/songs/Moonlight%20Sonata%202nd%20Movement%20-%20Ludwig%20van%20Beethoven.mp4">
           <button class="play-pause-btn" aria-label="Play">
@@ -162,7 +157,7 @@
           <span class="audio-time">0:00</span>
         </div>
       </li>
-      <li>7. All of Me
+      <li class="sample-card-bg allofme-item">7. All of Me
         <div class="audio-player"
           data-src="https://sdconinhwvanktqwcggp.supabase.co/storage/v1/object/public/songs/All%20of%20Me%20-%20Jon%20Schmidt.mp4">
           <button class="play-pause-btn" aria-label="Play">
@@ -193,9 +188,9 @@
 
 
     <ul class="ul2">
-      <li>1. Op. 1, No. 1 (2021)
+      <li class="sample-card-bg garden-item">1. Garden Waltz (2025)
         <div class="audio-player"
-          data-src="https://sdconinhwvanktqwcggp.supabase.co/storage/v1/object/public/songs/Op.%201,%20No.%201.mp3">
+          data-src="https://sdconinhwvanktqwcggp.supabase.co/storage/v1/object/public/songs/Garden%20Waltz%20Louder.mp3">
           <button class="play-pause-btn" aria-label="Play">
             <svg viewBox="0 0 24 24">
               <path class="play-icon" d="M8 5v14l11-7z" />
@@ -209,7 +204,23 @@
         </div>
       </li>
 
-      <li>2. Orchestral Variations on a Theme of Chopin (2022)
+      <li class="sample-card-bg broken-item">2. Broken (2024)
+        <div class="audio-player"
+          data-src="https://sdconinhwvanktqwcggp.supabase.co/storage/v1/object/public/songs/Broken.mp3">
+          <button class="play-pause-btn" aria-label="Play">
+            <svg viewBox="0 0 24 24">
+              <path class="play-icon" d="M8 5v14l11-7z" />
+              <path class="pause-icon" d="M6 19h4V5H6v14zm8-14v14h4V5h-4z" style="display:none;" />
+            </svg>
+          </button>
+          <div class="waveform-container">
+            <input type="range" class="audio-seek" value="0" max="100" step="0.1">
+          </div>
+          <span class="audio-time">0:00</span>
+        </div>
+      </li>
+
+      <li class="sample-card-bg orchestra-item">3. Orchestral Variations on a Theme of Chopin (2022)
         <div class="audio-player"
           data-src="https://sdconinhwvanktqwcggp.supabase.co/storage/v1/object/public/songs/Orchestral%20Variations%20on%20a%20Theme%20of%20Chopin%20-%20Seth%20Boss.mp4">
           <button class="play-pause-btn" aria-label="Play">
@@ -225,9 +236,9 @@
         </div>
       </li>
 
-      <li>3. Broken (2024)
+      <li class="sample-card-bg opus1-item">4. Op. 1, No. 1 (2021)
         <div class="audio-player"
-          data-src="https://sdconinhwvanktqwcggp.supabase.co/storage/v1/object/public/songs/Broken.mp3">
+          data-src="https://sdconinhwvanktqwcggp.supabase.co/storage/v1/object/public/songs/Op.%201,%20No.%201.mp3">
           <button class="play-pause-btn" aria-label="Play">
             <svg viewBox="0 0 24 24">
               <path class="play-icon" d="M8 5v14l11-7z" />
@@ -278,15 +289,15 @@
 
       <div class="links-container">
         <a href="https://www.linkedin.com/in/seth-boss-02648232a/" class="footerlinks" target="_blank">
-          <img src="images/linkedin_icon.png" alt="LinkedIn Icon" class="footerpictures">
+          <img src="images/small/linkedin_icon.png" alt="LinkedIn Icon" class="footerpictures">
           LinkedIn
         </a>
         <a href="https://www.youtube.com/@BossKeys-8" class="footerlinks" target="_blank">
-          <img src="images/youtube_icon2.png" alt="YouTube Icon" class="footerpictures youtube-icon">
+          <img src="images/small/youtube_icon2.png" alt="YouTube Icon" class="footerpictures youtube-icon">
           YouTube
         </a>
         <a href="https://www.facebook.com/profile.php?id=100008538274505" class="footerlinks" target="_blank">
-          <img src="images/facebook_icon.png" alt="Facebook Icon" class="footerpictures">
+          <img src="images/small/facebook_icon.png" alt="Facebook Icon" class="footerpictures">
           Facebook
         </a>
       </div>
