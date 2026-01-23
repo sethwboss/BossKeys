@@ -270,7 +270,6 @@ p {
 
 .waveform-bar {
   flex: 1;
-  min-width: 2px;
   background: rgba(212, 175, 55, 0.2);
   /* Muted gold base */
   border-radius: 2px;
