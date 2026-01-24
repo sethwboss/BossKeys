@@ -7,11 +7,13 @@
 }
 
 :root {
-  --primary-color: #d4af37;
+  --primary-color: #ffc400;
   /* Metallic Gold */
   --primary-dark: #1a1a1a;
   --secondary-color: #ac8402;
   /* Darker Gold */
+  --third-color: #e5c158;
+  /* Lighter Gold (Darkened) */
   --accent-cyan: #00d2ff;
   --glass-bg: rgba(22, 22, 26, 0.7);
   --glass-border: rgba(48, 40, 13, 1);
@@ -54,7 +56,7 @@ html {
 }
 
 main {
-  margin-top: 70px;
+  margin-top: 90px;
   /* Offset for fixed header */
 }
 
@@ -132,7 +134,8 @@ p {
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
-  min-height: 100vh;
+  min-height: calc(100vh - 90px);
+  /* 100vh minus header height to prevent scroll overshot */
   display: flex;
   align-items: center;
   justify-content: center;
@@ -151,15 +154,18 @@ p {
   content: '';
   position: absolute;
   top: 0;
-  left: 0;
-  width: 100%;
+  left: 50%;
+  transform: translateX(-50%);
   height: 100%;
+  width: 100vh;
+  /* Matches the width of the square piano photo (height = 100vh because of fixed attachment) */
   background: linear-gradient(to right,
-      rgba(0, 0, 0, 1) 0px,
-      rgba(0, 0, 0, 0) 400px,
-      rgba(0, 0, 0, 0) calc(100% - 400px),
-      rgba(0, 0, 0, 1) 100%);
+      black 0px,
+      transparent 50px,
+      transparent calc(100% - 50px),
+      black 100%);
   z-index: 1;
+  pointer-events: none;
 }
 
 .hero-content {
@@ -168,7 +174,7 @@ p {
   text-align: center;
   max-width: 900px;
   padding: 0 20px;
-  top: 20px;
+  top: -30px;
 }
 
 .glow-text {
@@ -330,7 +336,7 @@ p {
   padding: 60px 50px;
   background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.4)), url("../images/grand_piano3realistic.png");
   background-size: cover;
-  background-position: center;
+  background-position: center -250px;
   backdrop-filter: blur(12px);
   border: 1px solid var(--glass-border);
   border-radius: 20px;
@@ -541,10 +547,6 @@ p {
 
 /* Responsiveness */
 @media (max-width: 700px) {
-  main {
-    margin-top: 140px;
-  }
-
   .glow-text {
     font-size: 4rem;
   }

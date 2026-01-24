@@ -7,11 +7,13 @@
 }
 
 :root {
-  --primary-color: #d4af37;
+  --primary-color: #ffc400;
   /* Metallic Gold */
   --primary-dark: #1a1a1a;
   --secondary-color: #ac8402;
   /* Darker Gold */
+  --third-color: #e5c158;
+  /* Lighter Gold (Darkened) */
   --accent-cyan: #00d2ff;
   --glass-bg: rgba(22, 22, 26, 0.7);
   --glass-border: rgba(48, 40, 13, 1);
@@ -44,7 +46,7 @@ html {
 }
 
 main {
-  margin-top: 70px;
+  margin-top: 90px;
   /* Offset for fixed header */
 }
 
@@ -290,10 +292,6 @@ p {
 }
 
 @media (max-width: 700px) {
-  main {
-    margin-top: 140px;
-  }
-
   .container1 {
     padding: 0 20px;
   }

@@ -7,11 +7,13 @@
 }
 
 :root {
-  --primary-color: #d4af37;
+  --primary-color: #ffc400;
   /* Metallic Gold */
   --primary-dark: #1a1a1a;
   --secondary-color: #ac8402;
   /* Darker Gold */
+  --third-color: #e5c158;
+  /* Lighter Gold (Darkened) */
   --accent-cyan: #00d2ff;
   --glass-bg: rgba(22, 22, 26, 0.7);
   --glass-border: rgba(48, 40, 13, 1);
@@ -51,7 +53,7 @@ html {
 }
 
 main {
-  margin-top: 70px;
+  margin-top: 90px;
   /* Offset for fixed header */
 }
 
@@ -141,17 +143,37 @@ p {
 
 
 .hero-image {
-  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("../images/grand_piano2realistic.png");
-  min-height: 60vh;
+  background-image: url("../images/grand_piano2realistic.png");
+  min-height: calc(100vh - 90px);
+  /* 100vh minus header height */
   width: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
   background-position: center;
   background-repeat: no-repeat;
+  background-attachment: fixed;
   background-size: auto 100%;
   position: relative;
   background-color: black;
+}
+
+.hero-image::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  height: 100%;
+  width: 100vh;
+  /* Matches the width of the square piano photo (height = 100vh because of fixed attachment) */
+  background: linear-gradient(to right,
+      black 0px,
+      transparent 50px,
+      transparent calc(100% - 50px),
+      black 100%);
+  z-index: 1;
+  pointer-events: none;
 }
 
 .hero-text {
@@ -160,12 +182,19 @@ p {
   z-index: 10;
   max-width: 1200px;
   padding: 0 20px;
+  position: relative;
+  top: -80px;
+  /* Moves text up to match index.html height (compensates for missing stats/buttons) */
+  margin: 0 auto;
 }
 
 .hero-text h1 {
   font-size: clamp(3rem, 8vw, 100px);
-  text-shadow: 0 0 30px rgba(212, 175, 55, 0.5);
+  text-transform: uppercase;
+  letter-spacing: 5px;
   margin: 0;
+  color: white;
+  text-shadow: 0 0 30px rgba(212, 175, 55, 0.5);
   white-space: nowrap;
 }
 
@@ -504,10 +533,6 @@ p {
 }
 
 @media (max-width: 800px) {
-  main {
-    margin-top: 140px;
-  }
-
   h1 {
     font-size: 4rem;
   }

@@ -1,9 +1,9 @@
 footer {
-    background-image: linear-gradient(to top, #1e0432, black);
+    background-image: linear-gradient(to top, white, black);
     color: white;
     padding: 20px 20px 40px;
     text-align: center;
-    border-top: 2px solid var(--glass-border-purple);
+    border-top: 2px solid black;
     margin-top: 50px;
 }
 
@@ -14,6 +14,7 @@ footer h2 {
     font-family: var(--heading-font);
     font-weight: 500;
     letter-spacing: normal;
+    color: var(--primary-color);
 }
 
 footer p {
@@ -33,7 +34,7 @@ footer p {
 
 footer>p:last-child {
     font-size: 1rem;
-    opacity: 0.8;
+    color: black;
 }
 
 .links-container {
@@ -46,7 +47,7 @@ footer>p:last-child {
     display: inline-block;
     margin: 0 15px;
     text-decoration: none;
-    color: #ffffff;
+    color: black;
     padding: 10px 20px;
     border-radius: 50px;
     transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
@@ -57,11 +58,11 @@ footer>p:last-child {
 }
 
 .footerlinks:hover {
-    background: rgba(212, 175, 55, 0.1);
-    border-color: rgba(212, 175, 55, 0.3);
-    color: var(--primary-color);
-    transform: translateY(-5px);
-    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.3), 0 0 15px rgba(212, 175, 55, 0.3);
+    background: var(--primary-color);
+    border-color: white;
+    color: black;
+    transform: translateY(-5px) scale(1.05);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.4), 0 0 15px rgba(255, 196, 0, 0.6);
 }
 
 .footerpictures {
