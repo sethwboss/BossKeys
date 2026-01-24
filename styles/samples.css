@@ -162,15 +162,15 @@ p {
   content: '';
   position: absolute;
   top: 0;
-  left: 50%;
-  transform: translateX(-50%);
+  left: 0;
   height: 100%;
-  width: 100vh;
-  /* Matches the width of the square piano photo (height = 100vh because of fixed attachment) */
+  width: 100%;
   background: linear-gradient(to right,
-      black 0px,
-      transparent 50px,
-      transparent calc(100% - 50px),
+      black 0%,
+      black calc(50% - 50vh),
+      transparent calc(50% - 50vh + 50px),
+      transparent calc(50% + 50vh - 50px),
+      black calc(50% + 50vh),
       black 100%);
   z-index: 1;
   pointer-events: none;

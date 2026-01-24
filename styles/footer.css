@@ -73,6 +73,13 @@ footer>p:last-child {
     object-fit: contain;
 }
 
+.youtube-icon {
+    height: 44px;
+    margin-top: 18px;
+    /* Offset to center relative to 50px icons */
+    margin-bottom: 8px;
+}
+
 /* Copy Button Styles */
 .copy-btn {
     background: rgba(255, 255, 255, 0.1);
