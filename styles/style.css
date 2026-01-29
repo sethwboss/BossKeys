@@ -186,12 +186,26 @@ p {
 }
 
 .hero-content {
-  position: relative;
+  position: absolute;
+  top: 250px;
+  left: 50%;
+  transform: translateX(-50%);
   z-index: 10;
   text-align: center;
+  width: 100%;
   max-width: 900px;
   padding: 0 20px;
-  top: 70px;
+  /* Grid anchoring for stats and CTA, flexible flow for header */
+  display: grid;
+  grid-template-rows: 190px 150px 100px;
+  align-items: center;
+}
+
+.hero-header {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 100%;
 }
 
 .glow-text {
@@ -208,6 +222,7 @@ p {
   font-size: clamp(1.2rem, 3vw, 2.5rem);
   color: var(--primary-color);
   margin-top: 5px;
+  /* Restored for proportional scaling */
   font-weight: 300;
   letter-spacing: 2px;
   text-transform: none;
@@ -218,7 +233,8 @@ p {
   display: flex;
   justify-content: center;
   gap: 40px;
-  margin-top: 50px;
+  margin: 0;
+  /* Handled by grid row height */
 }
 
 .hero-stats p {
@@ -236,7 +252,8 @@ p {
 
 
 .hero-cta {
-  margin-top: 50px;
+  margin: 0;
+  /* Handled by grid row height */
 }
 
 
@@ -628,7 +645,8 @@ p {
 
   .hero-stats {
     flex-direction: row;
-    padding-top: 50px;
+    padding-top: 0px;
+    margin-top: 50px;
   }
 
   .hero-stats span {
@@ -637,6 +655,11 @@ p {
 
   .hero-stats p {
     font-size: clamp(0.9rem, 2.93vw, 1.1rem);
+  }
+
+  .subtitle {
+    margin-top: 20px;
+    /* Bigger gap for mobile as requested */
   }
 
   h2 {
@@ -656,26 +679,33 @@ p {
     width: 95%;
   }
 
+  .section-card::before {
+    opacity: 1;
+    animation: borderTrace 10s linear infinite running;
+  }
+
 }
 
 @media (max-width: 400px) {
+  .hero-content {
+    grid-template-rows: 280px 250px 100px;
+    top: 50px;
+    /* Merged header rows */
+  }
+
   .hero-stats {
     flex-direction: column;
     gap: 10px;
-    margin-top: 25px;
+    margin: 0;
   }
 
 
   .hero-cta {
-    margin-top: 25px;
+    margin: 0;
   }
 
   .glow-text {
     font-size: clamp(40px, 12.8vw, 64px);
   }
 
-  .section-card::before {
-    opacity: 1;
-    animation: borderTrace 10s linear infinite running;
-  }
 }
