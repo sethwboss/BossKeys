@@ -5,16 +5,42 @@ nav {
     width: 100%;
     min-height: 90px;
     box-sizing: border-box;
-    background-image: linear-gradient(to bottom, white, black 50%);
-    padding: 10px 40px;
+    background: black;
+    padding: 12px 40px 18px;
     align-items: center;
-    border-bottom: 2px solid black;
     position: fixed;
     top: 0;
     left: 0;
     right: 0;
     z-index: 1000;
     backdrop-filter: blur(10px);
+}
+
+nav::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 2px;
+    background: linear-gradient(90deg,
+            transparent 0%,
+            var(--primary-color) 45%,
+            var(--primary-color) 55%,
+            transparent 100%);
+    background-size: 100% 100%;
+    background-repeat: repeat-x;
+    background-position: 0 0;
+    opacity: 0.7;
+    transition: opacity 0.5s ease;
+    pointer-events: none;
+    filter: blur(1px);
+    z-index: 10;
+    animation: linearTrace 2.5s linear infinite paused;
+}
+
+nav:hover::before {
+    opacity: 1;
 }
 
 .nav_links {
@@ -40,19 +66,19 @@ nav {
 }
 
 .nav_links a:hover {
-    background-color: var(--secondary-color);
-    color: white;
+    background-color: var(--primary-color);
+    color: black;
     text-shadow: none;
     transform: scale(1.05);
-    box-shadow: 0 10px 20px rgba(212, 175, 55, 0.3), 0 0 15px rgba(212, 175, 55, 0.4);
+    box-shadow: 0 0 20px rgba(255, 196, 0, 0.8), 0 5px 15px rgba(0, 0, 0, 0.5);
 }
 
 .menu-toggle {
     display: none;
     flex-direction: column;
-    justify-content: space-around;
+    justify-content: space-between;
     width: 30px;
-    height: 25px;
+    height: 21px;
     background: transparent;
     border: none;
     cursor: pointer;
@@ -71,7 +97,7 @@ nav {
 
 /* Burger Animation */
 .menu-toggle.active .bar-1 {
-    transform: translateY(8px) rotate(45deg);
+    transform: translateY(9px) rotate(45deg);
 }
 
 .menu-toggle.active .bar-2 {
@@ -79,7 +105,7 @@ nav {
 }
 
 .menu-toggle.active .bar-3 {
-    transform: translateY(-8px) rotate(-45deg);
+    transform: translateY(-9px) rotate(-45deg);
 }
 
 .menu-toggle:hover .bar {
@@ -107,7 +133,22 @@ nav {
     outline-offset: -4px;
 }
 
+@keyframes linearTrace {
+    0% {
+        background-position: 0% 0;
+    }
+
+    100% {
+        background-position: 100vw 0;
+    }
+}
+
 @media (max-width: 600px) {
+    nav::before {
+        opacity: 1;
+        animation: linearTrace 5s linear infinite running;
+    }
+
     nav {
         flex-direction: row;
         justify-content: center;
@@ -160,6 +201,7 @@ nav {
         padding: 20px 40px;
         border-radius: 0;
         font-size: 24px;
+        color: white;
     }
 
     .nav-container {

@@ -125,9 +125,9 @@ p {
 }
 
 .book_now a:hover {
-  background-color: var(--secondary-color);
-  color: white;
-  border-color: white;
+  background-color: var(--primary-color);
+  color: black;
+  border-color: black;
   transform: scale(1.05);
   box-shadow: 0 10px 20px rgba(212, 175, 55, 0.3), 0 0 15px rgba(212, 175, 55, 0.4);
 }
@@ -193,14 +193,14 @@ p {
   text-transform: uppercase;
   letter-spacing: 5px;
   margin: 0;
-  color: white;
-  text-shadow: 0 0 30px rgba(212, 175, 55, 0.5);
+  color: var(--primary-color);
+  text-shadow: 0 0 20px rgba(0, 0, 0, 0.8), 0 0 10px rgba(80, 80, 80, 0.3);
   white-space: nowrap;
 }
 
 .hero-text p {
   font-size: clamp(1.2rem, 3vw, 2.5rem);
-  color: var(--primary-color);
+  color: white;
   margin-top: -10px;
   font-weight: 300;
   letter-spacing: 2px;
@@ -444,14 +444,15 @@ p {
 
 .hero-text2 h1 {
   font-size: clamp(2.5rem, 7vw, 100px);
-  text-shadow: 0 0 30px rgba(212, 175, 55, 0.5);
+  color: var(--primary-color);
+  text-shadow: 0 0 20px rgba(0, 0, 0, 0.8), 0 0 10px rgba(80, 80, 80, 0.3);
   margin: 0;
   white-space: nowrap;
 }
 
 .hero-text2 p {
   font-size: clamp(1.2rem, 3vw, 2.5rem);
-  color: var(--primary-color);
+  color: white;
   margin-top: -10px;
   font-weight: 300;
   letter-spacing: 2px;

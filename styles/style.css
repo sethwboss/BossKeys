@@ -212,7 +212,7 @@ p {
   letter-spacing: 5px;
   margin: 0;
   color: var(--primary-color);
-  text-shadow: 0 0 30px rgba(212, 175, 55, 0.3);
+  text-shadow: 0 0 20px rgba(0, 0, 0, 0.8), 0 0 10px rgba(80, 80, 80, 0.3);
   line-height: 1;
 }
 
@@ -582,9 +582,9 @@ p {
 }
 
 .book_now a:hover {
-  background-color: var(--secondary-color);
-  color: white;
-  border-color: white;
+  background-color: var(--primary-color);
+  color: black;
+  border-color: black;
   transform: scale(1.05);
   box-shadow: 0 10px 20px rgba(212, 175, 55, 0.3), 0 0 15px rgba(212, 175, 55, 0.4);
 }

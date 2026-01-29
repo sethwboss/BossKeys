@@ -1,10 +1,38 @@
 footer {
-    background-image: linear-gradient(to top, white, black);
+    background: black;
     color: white;
-    padding: 20px 20px 40px;
+    padding: 60px 20px 40px;
     text-align: center;
-    border-top: 2px solid black;
     margin-top: 50px;
+    position: relative;
+    overflow: hidden;
+}
+
+footer::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    height: 2px;
+    background: linear-gradient(90deg,
+            transparent 0%,
+            var(--primary-color) 45%,
+            var(--primary-color) 55%,
+            transparent 100%);
+    background-size: 100% 100%;
+    background-repeat: repeat-x;
+    background-position: 0 0;
+    opacity: 0.7;
+    transition: opacity 0.5s ease;
+    pointer-events: none;
+    filter: blur(1px);
+    z-index: 10;
+    animation: linearTrace 2.5s linear infinite paused;
+}
+
+footer:hover::before {
+    opacity: 1;
 }
 
 footer h2 {
@@ -34,7 +62,7 @@ footer p {
 
 footer>p:last-child {
     font-size: 1rem;
-    color: black;
+    color: white;
 }
 
 .links-container {
@@ -44,22 +72,27 @@ footer>p:last-child {
 }
 
 .footerlinks {
-    display: inline-block;
-    margin: 0 15px;
+    display: inline-flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    vertical-align: middle;
+    margin: 10px;
     text-decoration: none;
-    color: black;
-    padding: 10px 20px;
-    border-radius: 50px;
+    color: white;
+    padding: 0px;
+    border-radius: 20px;
     transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     font-size: 1.1rem;
     font-family: var(--heading-font);
     letter-spacing: 0.5px;
-    border: 1px solid transparent;
+    border: none;
+    width: 110px;
+    aspect-ratio: 1 / 1;
 }
 
 .footerlinks:hover {
     background: var(--primary-color);
-    border-color: white;
     color: black;
     transform: translateY(-5px) scale(1.05);
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.4), 0 0 15px rgba(255, 196, 0, 0.6);
@@ -67,7 +100,7 @@ footer>p:last-child {
 
 .footerpictures {
     display: block;
-    margin: 15px auto 5px auto;
+    margin: 0 0 10px 0;
     height: 50px;
     width: auto;
     object-fit: contain;
@@ -75,9 +108,8 @@ footer>p:last-child {
 
 .youtube-icon {
     height: 44px;
-    margin-top: 18px;
-    /* Offset to center relative to 50px icons */
-    margin-bottom: 8px;
+    margin-bottom: 16px;
+    /* Balance the height difference vs other 50px icons */
 }
 
 /* Copy Button Styles */
@@ -147,4 +179,21 @@ footer>p:last-child {
     opacity: 1;
     visibility: visible;
     top: -53px;
+}
+
+@keyframes linearTrace {
+    0% {
+        background-position: 0% 0;
+    }
+
+    100% {
+        background-position: 100vw 0;
+    }
+}
+
+@media (max-width: 600px) {
+    footer::before {
+        opacity: 1;
+        animation: linearTrace 5s linear infinite running;
+    }
 }
