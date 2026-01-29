@@ -23,8 +23,6 @@
   --accent-cyan: #00d2ff;
   --glass-bg: rgba(22, 22, 26, 0.7);
   --glass-border: rgba(48, 40, 13, 1);
-  --glass-border-purple: rgba(45, 25, 65, 1);
-  /* Muted purple border */
 
   --heading-font: "Open Sans", sans-serif;
   --paragraph-font: Roboto, "Roboto Slab", sans-serif;
@@ -187,7 +185,7 @@ p {
 
 .hero-content {
   position: absolute;
-  top: 250px;
+  top: 175px;
   left: 50%;
   transform: translateX(-50%);
   z-index: 10;
@@ -213,14 +211,14 @@ p {
   text-transform: uppercase;
   letter-spacing: 5px;
   margin: 0;
-  color: white;
-  text-shadow: 0 0 30px rgba(212, 175, 55, 0.5);
+  color: var(--primary-color);
+  text-shadow: 0 0 30px rgba(212, 175, 55, 0.3);
   line-height: 1;
 }
 
 .subtitle {
   font-size: clamp(1.2rem, 3vw, 2.5rem);
-  color: var(--primary-color);
+  color: white;
   margin-top: 5px;
   /* Restored for proportional scaling */
   font-weight: 300;
@@ -646,7 +644,6 @@ p {
   .hero-stats {
     flex-direction: row;
     padding-top: 0px;
-    margin-top: 50px;
   }
 
   .hero-stats span {
