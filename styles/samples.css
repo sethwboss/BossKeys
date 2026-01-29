@@ -516,7 +516,7 @@ p {
 
 
 /* Responsiveness */
-@media (max-width: 1000px) {
+@media (max-width: 900px) {
   h1 {
     font-size: 80px;
   }
@@ -532,7 +532,7 @@ p {
   }
 }
 
-@media (max-width: 800px) {
+@media (max-width: 700px) {
   h1 {
     font-size: 4rem;
   }

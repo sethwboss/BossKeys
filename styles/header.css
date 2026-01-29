@@ -107,7 +107,7 @@ nav {
     outline-offset: -4px;
 }
 
-@media (max-width: 700px) {
+@media (max-width: 600px) {
     nav {
         flex-direction: row;
         justify-content: center;

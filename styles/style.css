@@ -2,6 +2,12 @@
 @import "header.css";
 @import "footer.css";
 
+@property --angle {
+  syntax: '<angle>';
+  initial-value: 0deg;
+  inherits: false;
+}
+
 * {
   box-sizing: border-box;
 }
@@ -96,22 +102,28 @@ h6 {
 }
 
 h1 {
-  font-size: 100px;
+  font-size: clamp(3rem, 9.375vw, 6.25rem);
+  /* 48px to 100px, starting at 1066px */
   letter-spacing: 5px;
 }
 
 h2 {
-  font-size: 50px;
+  font-size: clamp(2.25rem, 3.8vw, 3.125rem);
+  /* 36px to 50px, slower scale starting at 1066px */
   font-weight: 500;
+  color: var(--primary-color);
 }
 
 h3 {
-  font-size: 20px;
+  font-size: clamp(1rem, 1.875vw, 1.25rem);
+  /* 16px to 20px, starting at 1066px */
 }
 
 p {
   font-family: var(--paragraph-font);
   line-height: 1.5;
+  font-size: clamp(1rem, 1.8vw, 1.25rem);
+  /* 16px to 20px, starting at 1066px */
 }
 
 
@@ -179,7 +191,7 @@ p {
   text-align: center;
   max-width: 900px;
   padding: 0 20px;
-  top: -30px;
+  top: 70px;
 }
 
 .glow-text {
@@ -189,15 +201,17 @@ p {
   margin: 0;
   color: white;
   text-shadow: 0 0 30px rgba(212, 175, 55, 0.5);
+  line-height: 1;
 }
 
 .subtitle {
   font-size: clamp(1.2rem, 3vw, 2.5rem);
   color: var(--primary-color);
-  margin-top: -10px;
+  margin-top: 5px;
   font-weight: 300;
   letter-spacing: 2px;
   text-transform: none;
+  line-height: 1;
 }
 
 .hero-stats {
@@ -225,17 +239,9 @@ p {
   margin-top: 50px;
 }
 
-.repertoire-section {
-  background: black;
-  min-height: auto;
-  padding: 100px 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
 
 .content-section {
-  padding: 100px 0;
+  padding: 75px 0;
 }
 
 .grid-container {
@@ -259,7 +265,8 @@ p {
   min-height: 550px;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: flex-start;
+  /* Changed from center to ensure consistent top padding */
   box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   overflow: hidden;
@@ -277,6 +284,60 @@ p {
 .about-card {
   text-align: left;
   background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url("../images/music_image2original.jpg");
+  background-size: cover;
+  background-position: center;
+}
+
+/* Moving Border Glow Effect */
+.section-card {
+  position: relative;
+}
+
+.section-card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  padding: 2px;
+  background: conic-gradient(from var(--angle),
+      transparent 0%,
+      var(--primary-color) 8%,
+      transparent 16%,
+      transparent 55%,
+      var(--primary-color) 63%,
+      transparent 71%,
+      transparent 100%);
+  border-radius: inherit;
+  mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  mask-composite: exclude;
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: destination-out;
+  opacity: 0.7;
+  transition: opacity 0.5s ease;
+  pointer-events: none;
+  filter: blur(1.5px);
+  z-index: 10;
+  /* Start animation but keep it paused so it's static */
+  animation: borderTrace 4s linear infinite paused;
+}
+
+.section-card:hover::before {
+  opacity: 1;
+  animation-play-state: running;
+}
+
+@keyframes borderTrace {
+  0% {
+    --angle: 0deg;
+  }
+
+  100% {
+    --angle: 360deg;
+  }
+}
+
+.repertoire-card {
+  text-align: left;
+  background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.4)), url("../images/grand_piano3realistic.png");
   background-size: cover;
   background-position: center;
 }
@@ -299,9 +360,7 @@ p {
   gap: 40px;
 }
 
-.section-card p,
-.hero-text-overlay p {
-  font-size: 1.25rem;
+.section-card p {
   margin-bottom: 20px;
 }
 
@@ -327,51 +386,62 @@ p {
   border: none;
 }
 
-.hero-text-overlay {
-  position: relative;
-  z-index: 10;
-  text-align: left;
-  color: white;
-  width: 90%;
-  max-width: 900px;
-  min-height: 550px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  padding: 60px 50px;
-  background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.4)), url("../images/grand_piano3realistic.png");
-  background-size: cover;
-  background-position: center -250px;
-  backdrop-filter: blur(12px);
+
+
+
+/* Fees Table Styling (Matching Scheduling Page) */
+.table-container {
+  overflow-x: auto;
+  width: fit-content;
+  margin: 40px 0 0;
+  background: var(--glass-bg);
+  backdrop-filter: blur(8px);
+  padding: 5px 30px;
+  border-radius: 15px;
   border: 1px solid var(--glass-border);
-  border-radius: 20px;
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
 }
 
-.hero-text-overlay h2 {
-  margin-top: 0;
-  font-size: 50px;
-  margin-bottom: 20px;
+.fees-table {
+  width: auto;
+  border-collapse: separate;
+  border-spacing: 0;
+  color: white;
+  font-family: var(--paragraph-font);
 }
 
-.hero-text-overlay:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 30px 60px rgba(212, 175, 55, 0.2);
+.fees-table td {
+  padding: 15px 0;
+  border-bottom: 1px solid rgba(212, 175, 55, 0.2);
+  text-align: left;
+  font-size: clamp(1.1rem, 2.25vw, 1.5rem);
 }
 
+.fees-table td:first-child {
+  padding-right: 40px;
+}
 
+.fees-table tr:last-child td {
+  border-bottom: none;
+}
 
-.pricing {
-  margin: 30px 0;
+.fees-table td:nth-child(2) {
+  font-weight: bold;
+  color: var(--primary-color);
+  text-align: right;
+}
+
+.fees-table tr:hover td {
+  background: rgba(212, 175, 55, 0.05);
+  transition: background 0.3s ease;
 }
 
 .free-price,
 .studio-price,
 .home-price {
   display: block;
-  font-size: 1.5rem;
+  font-size: clamp(1.1rem, 2.25vw, 1.5rem);
+  /* 17.6px to 24px, starting at 1066px */
   margin-bottom: 15px;
   opacity: 1;
   letter-spacing: 1px;
@@ -485,13 +555,13 @@ p {
   color: black;
   font-family: var(--heading-font);
   padding: 12px 30px;
-  border: 1px solid transparent;
+  font-size: clamp(1rem, 2.25vw, 1.5rem);
+  /* 16px to 24px, starting at 1066px */
   display: block;
   margin: 50px auto 0;
   width: fit-content;
   border-radius: 15px;
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-  font-size: 24px;
   font-weight: 600;
   box-shadow: 0 0 20px rgba(212, 175, 55, 0.4);
 }
@@ -551,26 +621,30 @@ p {
 }
 
 /* Responsiveness */
-@media (max-width: 700px) {
+@media (max-width: 600px) {
   .glow-text {
     font-size: 4rem;
   }
 
   .hero-stats {
     flex-direction: row;
-    gap: 20px;
+    padding-top: 50px;
   }
 
   .hero-stats span {
     font-size: 1.8rem;
   }
 
-  .hero-text-overlay h2 {
-    font-size: 2.5rem;
+  h2 {
+    margin-bottom: 20px;
+  }
+
+  .content-section {
+    padding: 50px 0;
   }
 
   .grid-container {
-    padding: 40px 20px;
+    padding: 0 20px;
   }
 
   .section-card {
@@ -578,25 +652,16 @@ p {
     width: 95%;
   }
 
-  .hero-text-overlay {
-    width: 95%;
-    padding: 30px;
-  }
 }
 
 @media (max-width: 500px) {
   .hero-stats {
     flex-direction: column;
-    gap: 20px;
-  }
-}
-
-@media (max-width: 1000px) {
-  .hero-stats {
-    gap: 20px;
+    gap: 10px;
   }
 
-  h1 {
-    font-size: 80px;
+  .section-card::before {
+    opacity: 1;
+    animation: borderTrace 10s linear infinite running;
   }
 }
