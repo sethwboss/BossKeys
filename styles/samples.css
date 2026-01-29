@@ -144,12 +144,13 @@ p {
 
 .hero-image {
   background-image: url("../images/grand_piano2realistic.png");
-  min-height: calc(100vh - 90px);
-  /* 100vh minus header height */
+  min-height: calc(80vh - 140px);
   width: 100%;
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   justify-content: center;
+  padding-top: 170px;
+  /* Aligned with Index.html title */
   background-position: center;
   background-repeat: no-repeat;
   background-attachment: fixed;
@@ -168,8 +169,8 @@ p {
   background: linear-gradient(to right,
       black 0%,
       black calc(50% - 50vh),
-      transparent calc(50% - 50vh + 50px),
-      transparent calc(50% + 50vh - 50px),
+      transparent calc(50% - 50vh + 200px),
+      transparent calc(50% + 50vh - 200px),
       black calc(50% + 50vh),
       black 100%);
   z-index: 1;
@@ -182,9 +183,6 @@ p {
   z-index: 10;
   max-width: 1200px;
   padding: 0 20px;
-  position: relative;
-  top: -80px;
-  /* Moves text up to match index.html height (compensates for missing stats/buttons) */
   margin: 0 auto;
 }
 
@@ -196,6 +194,7 @@ p {
   color: var(--primary-color);
   text-shadow: 0 0 20px rgba(0, 0, 0, 0.8), 0 0 10px rgba(80, 80, 80, 0.3);
   white-space: nowrap;
+  line-height: 1;
 }
 
 .hero-text p {

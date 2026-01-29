@@ -94,10 +94,11 @@ p {
 /* Hero Section */
 .hero-image {
   background-image: url("../images/grand_piano4realistic.png");
-  min-height: 60vh;
+  min-height: calc(80vh - 140px);
   width: 100%;
+  padding-top: 170px;
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   justify-content: center;
   background-position: center;
   background-attachment: fixed;
@@ -117,8 +118,8 @@ p {
   background: linear-gradient(to right,
       black 0%,
       black calc(50% - 50vh),
-      transparent calc(50% - 50vh + 50px),
-      transparent calc(50% + 50vh - 50px),
+      rgba(0, 0, 0, 0.4) calc(50% - 50vh + 300px),
+      rgba(0, 0, 0, 0.4) calc(50% + 50vh - 300px),
       black calc(50% + 50vh),
       black 100%);
   z-index: 1;
@@ -137,6 +138,7 @@ p {
   color: var(--primary-color);
   text-shadow: 0 0 20px rgba(0, 0, 0, 0.8), 0 0 10px rgba(80, 80, 80, 0.3);
   margin: 0;
+  line-height: 1;
 }
 
 .hero-text p {

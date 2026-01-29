@@ -175,8 +175,8 @@ p {
   background: linear-gradient(to right,
       black 0%,
       black calc(50% - 50vh),
-      transparent calc(50% - 50vh + 50px),
-      transparent calc(50% + 50vh - 50px),
+      transparent calc(50% - 50vh + 200px),
+      transparent calc(50% + 50vh - 200px),
       black calc(50% + 50vh),
       black 100%);
   z-index: 1;
