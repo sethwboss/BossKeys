@@ -632,7 +632,11 @@ p {
   }
 
   .hero-stats span {
-    font-size: 1.8rem;
+    font-size: clamp(1.8rem, 6.66vw, 2.5rem);
+  }
+
+  .hero-stats p {
+    font-size: clamp(0.9rem, 2.93vw, 1.1rem);
   }
 
   h2 {
@@ -654,12 +658,13 @@ p {
 
 }
 
-@media (max-width: 500px) {
+@media (max-width: 400px) {
   .hero-stats {
     flex-direction: column;
     gap: 10px;
     margin-top: 25px;
   }
+
 
   .hero-cta {
     margin-top: 25px;
