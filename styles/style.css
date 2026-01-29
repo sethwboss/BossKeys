@@ -658,6 +658,15 @@ p {
   .hero-stats {
     flex-direction: column;
     gap: 10px;
+    margin-top: 25px;
+  }
+
+  .hero-cta {
+    margin-top: 25px;
+  }
+
+  .glow-text {
+    font-size: clamp(40px, 12.8vw, 64px);
   }
 
   .section-card::before {
