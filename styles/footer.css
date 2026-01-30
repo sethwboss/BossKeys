@@ -109,6 +109,7 @@ footer>p:last-child {
 .youtube-icon {
     height: 44px;
     margin-bottom: 16px;
+    transform: translateY(3px);
     /* Balance the height difference vs other 50px icons */
 }
 
