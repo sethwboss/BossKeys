@@ -3,10 +3,10 @@ nav {
     justify-content: center;
     gap: 40px;
     width: 100%;
-    min-height: 90px;
+    min-height: 80px;
     box-sizing: border-box;
     background: black;
-    padding: 12px 40px 18px;
+    padding: 10px 40px;
     align-items: center;
     position: fixed;
     top: 0;

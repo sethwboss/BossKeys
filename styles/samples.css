@@ -59,7 +59,7 @@ html {
 }
 
 main {
-  margin-top: 90px;
+  margin-top: 80px;
   /* Offset for fixed header */
 }
 
@@ -193,13 +193,12 @@ p {
 }
 
 .hero-text h1 {
-  font-size: clamp(3rem, 8vw, 100px);
+  font-size: clamp(1.5rem, 8vw, 100px);
   text-transform: uppercase;
   letter-spacing: 5px;
   margin: 0;
   color: var(--primary-color);
   text-shadow: 0 0 20px rgba(0, 0, 0, 0.8), 0 0 10px rgba(80, 80, 80, 0.3);
-  white-space: nowrap;
   line-height: 1;
 }
 
@@ -279,9 +278,11 @@ p {
   z-index: 10;
   /* Start animation but keep it paused so it's static */
   animation: borderTrace 4s linear infinite paused;
+  animation-delay: var(--random-delay, 0s);
 }
 
-.sample-card-bg:hover::before {
+.sample-card-bg:hover::before,
+.sample-card-bg.playing::before {
   opacity: 1;
   animation-play-state: running;
 }
@@ -595,9 +596,7 @@ p {
 
 /* Responsiveness */
 @media (max-width: 900px) {
-  h1 {
-    font-size: 80px;
-  }
+  /* Removed h1 font-size override */
 }
 
 @media (max-width: 1300px) {
@@ -612,9 +611,6 @@ p {
 }
 
 @media (max-width: 700px) {
-  h1 {
-    font-size: 4rem;
-  }
 
   .hero-text h1,
   .hero-text2 h1 {
@@ -634,8 +630,8 @@ p {
   }
 }
 
-@media (max-width: 500px) {
-  h1 {
-    font-size: 3rem;
+@media (max-width: 600px) {
+  .title-break {
+    display: block;
   }
 }

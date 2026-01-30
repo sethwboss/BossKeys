@@ -6,6 +6,12 @@
   box-sizing: border-box;
 }
 
+@property --angle {
+  syntax: '<angle>';
+  initial-value: 0deg;
+  inherits: false;
+}
+
 :root {
   --primary-color: #ffc400;
   /* Metallic Gold */
@@ -44,7 +50,7 @@ html {
 }
 
 main {
-  margin-top: 90px;
+  margin-top: 80px;
   /* Offset for fixed header */
 }
 
@@ -115,7 +121,9 @@ p {
   left: 0;
   height: 100%;
   width: 100%;
-  background: linear-gradient(to right,
+  background:
+    linear-gradient(to top, black 0%, transparent 150px),
+    linear-gradient(to right,
       black 0%,
       black calc(50% - 50vh),
       rgba(0, 0, 0, 0.4) calc(50% - 50vh + 300px),
@@ -161,7 +169,54 @@ p {
   border-radius: 20px;
   text-align: center;
   box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+  position: relative;
+  overflow: hidden;
 }
+
+.hero-text2::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  padding: 2px;
+  background: conic-gradient(from var(--angle),
+      transparent 0%,
+      var(--primary-color) 8%,
+      transparent 16%,
+      transparent 55%,
+      var(--primary-color) 63%,
+      transparent 71%,
+      transparent 100%);
+  border-radius: inherit;
+  mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  mask-composite: exclude;
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: destination-out;
+  opacity: 0.7;
+  transition: opacity 0.5s ease;
+  pointer-events: none;
+  filter: blur(1.5px);
+  z-index: 10;
+  /* Start animation but keep it paused so it's static */
+  animation: borderTrace 4s linear infinite paused;
+  animation-delay: var(--random-delay, 0s);
+}
+
+.hero-text2:hover::before {
+  opacity: 1;
+  animation-play-state: running;
+}
+
+@keyframes borderTrace {
+  0% {
+    --angle: 0deg;
+  }
+
+  100% {
+    --angle: 360deg;
+  }
+}
+
+
 
 .hero-text2 h2 {
   color: white;
@@ -317,7 +372,7 @@ p {
   }
 
   .hero-text h1 {
-    font-size: 3.5rem;
+    font-size: clamp(2.2rem, 8vw, 3rem);
   }
 }
 
