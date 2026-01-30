@@ -193,7 +193,7 @@ footer>p:last-child {
 
 @media (max-width: 600px) {
     footer::before {
-        opacity: 1;
-        animation: linearTrace 5s linear infinite running;
+        opacity: 0.7;
+        animation: none;
     }
 }

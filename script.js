@@ -61,7 +61,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const waveformContainer = player.querySelector('.waveform-container');
 
         // Generate pseudo-waveform bars
-        const numBars = 80;
+        const numBars = window.innerWidth > 600 ? 80 : 50;
         const bars = [];
         for (let i = 0; i < numBars; i++) {
             const bar = document.createElement('div');

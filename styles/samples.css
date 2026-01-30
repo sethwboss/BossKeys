@@ -6,6 +6,12 @@
   box-sizing: border-box;
 }
 
+@property --angle {
+  syntax: '<angle>';
+  initial-value: 0deg;
+  inherits: false;
+}
+
 :root {
   --primary-color: #ffc400;
   /* Metallic Gold */
@@ -200,14 +206,15 @@ p {
 .hero-text p {
   font-size: clamp(1.2rem, 3vw, 2.5rem);
   color: white;
-  margin-top: -10px;
+  margin-top: 15px;
   font-weight: 300;
   letter-spacing: 2px;
 }
 
 
-
-
+.song-title {
+  line-height: 1;
+}
 
 .firstlist {
   list-style: none;
@@ -242,6 +249,51 @@ p {
   background-position: left center;
   min-height: 350px;
   justify-content: flex-start;
+  gap: 0 !important;
+  padding-bottom: 0 !important;
+  position: relative;
+}
+
+.sample-card-bg::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  padding: 2px;
+  background: conic-gradient(from var(--angle),
+      transparent 0%,
+      var(--primary-color) 8%,
+      transparent 16%,
+      transparent 55%,
+      var(--primary-color) 63%,
+      transparent 71%,
+      transparent 100%);
+  border-radius: inherit;
+  mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  mask-composite: exclude;
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: destination-out;
+  opacity: 0.7;
+  transition: opacity 0.5s ease;
+  pointer-events: none;
+  filter: blur(1.5px);
+  z-index: 10;
+  /* Start animation but keep it paused so it's static */
+  animation: borderTrace 4s linear infinite paused;
+}
+
+.sample-card-bg:hover::before {
+  opacity: 1;
+  animation-play-state: running;
+}
+
+@keyframes borderTrace {
+  0% {
+    --angle: 0deg;
+  }
+
+  100% {
+    --angle: 360deg;
+  }
 }
 
 .sample-card-bg .audio-player {
@@ -306,13 +358,20 @@ p {
   background: var(--glass-bg);
   backdrop-filter: blur(12px);
   border: 1px solid var(--glass-border);
-  padding: 15px 35px;
-  border-radius: 60px;
+  padding: 15px 30px;
+  border-radius: 40px;
   width: 100%;
   max-width: 100%;
   margin-top: 15px;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
   transition: all 0.3s ease;
+}
+
+@media (max-width: 600px) {
+  .audio-player {
+    padding: 12px 15px;
+    gap: 12px;
+  }
 }
 
 .firstlist li:hover .audio-player,
@@ -323,7 +382,7 @@ p {
 
 .play-pause-btn {
   background: var(--primary-color);
-  border: none;
+  border: 2px solid transparent;
   width: 60px;
   height: 60px;
   border-radius: 50%;
@@ -331,7 +390,7 @@ p {
   align-items: center;
   justify-content: center;
   cursor: pointer;
-  transition: all 0.3s ease;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   flex-shrink: 0;
   box-shadow: 0 0 15px rgba(212, 175, 55, 0.4);
 }
@@ -340,7 +399,19 @@ p {
   transform: scale(1.1);
   box-shadow: 0 0 25px rgba(212, 175, 55, 0.6);
   background: #000;
-  border: 2px solid var(--primary-color);
+  border-color: var(--primary-color);
+}
+
+@media (max-width: 600px) {
+  .play-pause-btn {
+    width: 45px;
+    height: 45px;
+  }
+
+  .play-pause-btn svg {
+    width: 22px;
+    height: 22px;
+  }
 }
 
 .play-pause-btn:hover svg {
@@ -348,9 +419,10 @@ p {
 }
 
 .play-pause-btn svg {
-  width: 28px;
-  height: 28px;
+  width: 38px;
+  height: 38px;
   fill: #000;
+  transition: fill 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .waveform-container {
@@ -362,6 +434,12 @@ p {
   gap: 2px;
   min-width: 0;
   /* Prevents container from pushing out siblings */
+}
+
+@media (max-width: 600px) {
+  .waveform-container {
+    gap: 1px;
+  }
 }
 
 .waveform-bar {
@@ -529,6 +607,7 @@ p {
     grid-template-columns: 1fr;
     max-width: 850px;
     gap: 30px;
+    padding: 0 20px;
   }
 }
 
@@ -546,6 +625,12 @@ p {
   .ul2 li {
     padding: 20px;
     font-size: 1.25rem;
+  }
+
+  .firstlist,
+  .ul2 {
+    padding: 0 10px;
+    gap: 20px;
   }
 }
 

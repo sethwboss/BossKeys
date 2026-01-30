@@ -145,7 +145,6 @@ nav:hover::before {
 
 @media (max-width: 600px) {
     nav::before {
-        opacity: 1;
         animation: none;
         /* Disabled auto-play on mobile for header */
     }

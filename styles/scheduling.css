@@ -144,7 +144,7 @@ p {
 .hero-text p {
   font-size: clamp(1.2rem, 3vw, 2.5rem);
   color: white;
-  margin-top: -10px;
+  margin-top: 15px;
   font-weight: 300;
   letter-spacing: 2px;
   line-height: 1.4;
