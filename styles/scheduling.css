@@ -161,7 +161,7 @@ p {
 
 .hero-text2 {
   max-width: 900px;
-  margin: 50px auto;
+  margin: 80px auto;
   padding: 40px;
   background: var(--glass-bg);
   backdrop-filter: blur(12px);
