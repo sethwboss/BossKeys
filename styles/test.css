@@ -149,8 +149,7 @@ p {
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
-  min-height: 70vh;
-  /* Adjusted from 80vh/calc to reduce the vertical gap */
+  min-height: 80vh;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -160,9 +159,8 @@ p {
 
 .hero-section {
   background-image: url("../images/grand_piano1realistic.png");
-  background-position: center bottom;
-  /* Anchor to bottom to avoid gaps when resizing */
-  background-size: cover;
+  background-position: center -130px;
+  background-size: auto 100%;
 }
 
 
