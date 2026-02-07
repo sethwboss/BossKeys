@@ -145,16 +145,19 @@ p {
 
 
 .parallax {
+  min-height: 80vh;
+  display: flex;
+  align-items: center;
+  /* This provides perfect vertical centering */
+  justify-content: center;
+  /* This provides perfect horizontal centering */
+  position: relative;
+  overflow: hidden;
+  background-color: black;
   background-attachment: fixed;
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
-  min-height: 80vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  position: relative;
-  background-color: black;
 }
 
 .hero-section {
@@ -184,20 +187,23 @@ p {
 
 .hero-content {
   position: relative;
-  top: auto;
-  left: auto;
-  transform: none;
+  /* Change from absolute */
+  top: 0;
+  /* Remove the 175px anchor */
+  margin: 0 auto;
+  /* Center horizontally */
   z-index: 10;
   text-align: center;
   width: 100%;
   max-width: 900px;
   padding: 0 20px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  gap: clamp(20px, 5vh, 40px);
-  /* Flexible gap to keep content tight on smaller heights */
+
+  /* Keep your grid layout, but let flexbox handle the verticality */
+  display: grid;
+  grid-template-rows: auto auto auto;
+  /* Let content dictate height */
+  gap: 20px;
+  /* Add consistent spacing */
 }
 
 .hero-header {
