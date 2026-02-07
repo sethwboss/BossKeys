@@ -492,6 +492,7 @@ p {
 .hero-image {
   background-image: url("../images/grand_piano3original.jpg");
   height: 80vh;
+  min-height: 80dvh;
   width: 100%;
   background-position: center;
   background-repeat: no-repeat;
