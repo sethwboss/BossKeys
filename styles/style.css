@@ -694,7 +694,7 @@ p {
 
 @media (max-width: 400px) {
   .hero-content {
-    grid-template-rows: 40% 40% 20%;
+    grid-template-rows: 40% 30% 30%;
     height: calc(90dvh - 140px);
     height: calc(90dvh - 140px);
     top: 0;
@@ -705,6 +705,16 @@ p {
     flex-direction: column;
     gap: 0px;
     margin: 0px auto;
+  }
+
+  .hero-stats span {
+    font-size: clamp(1.2rem, 10vw, 1.8rem);
+  }
+
+  .hero-stats p {
+    font-size: clamp(0.75rem, 10vw, 0.9rem);
+    /* Tightens the vertical space between the three stats */
+    line-height: 1.1;
   }
 
   .hero-image {
@@ -722,6 +732,11 @@ p {
     align-items: center;
     justify-items: center;
     align-self: center;
+  }
+
+  .book_now a {
+    margin: 0;
+    /* Reset the 'auto' margin to let flexbox handle it */
   }
 
 
