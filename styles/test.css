@@ -145,7 +145,7 @@ p {
 
 
 .parallax {
-  min-height: 80vh;
+  min-height: 200vh;
   display: flex;
   align-items: center;
   /* This provides perfect vertical centering */
