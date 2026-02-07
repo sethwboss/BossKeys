@@ -225,6 +225,7 @@ p {
   letter-spacing: 2px;
   text-transform: none;
   line-height: 1;
+  text-shadow: 0 0 5px rgb(0, 0, 0), 0 0 5px rgb(0, 0, 0);
 }
 
 .hero-stats {
@@ -238,7 +239,8 @@ p {
 .hero-stats p {
   font-family: var(--heading-font);
   font-size: 1.1rem;
-  opacity: 0.9;
+  opacity: 1;
+  text-shadow: 0 0 5px rgb(0, 0, 0), 0 0 5px rgb(0, 0, 0);
 }
 
 .hero-stats span {
@@ -639,6 +641,10 @@ p {
 
 /* Responsiveness */
 @media (max-width: 600px) {
+  .hero-content {
+    top: 100px;
+  }
+
   .glow-text {
     line-height: 1;
   }
@@ -659,6 +665,7 @@ p {
   .subtitle {
     margin-top: 20px;
     /* Bigger gap for mobile as requested */
+
   }
 
   h2 {
@@ -688,7 +695,7 @@ p {
 @media (max-width: 400px) {
   .hero-content {
     grid-template-rows: 280px 250px 100px;
-    top: 50px;
+    top: 75px;
     /* Merged header rows */
   }
 
