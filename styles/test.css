@@ -145,12 +145,14 @@ p {
 
 
 .parallax {
-  min-height: 200vh;
+  min-height: 80vh;
+  min-height: 80dvh;
+  /* Optimized for mobile address bars */
   display: flex;
   align-items: center;
-  /* This provides perfect vertical centering */
+  /* Perfect vertical centering */
   justify-content: center;
-  /* This provides perfect horizontal centering */
+  /* Perfect horizontal centering */
   position: relative;
   overflow: hidden;
   background-color: black;
@@ -158,6 +160,16 @@ p {
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
+}
+
+/* Fix for mobile parallax - most mobile browsers don't support 'fixed' correctly */
+@media (max-width: 768px) {
+  .parallax {
+    background-attachment: scroll;
+    min-height: 80vh;
+    min-height: 80svh;
+    /* Small viewport height for stable mobile layout */
+  }
 }
 
 .hero-section {
