@@ -694,21 +694,36 @@ p {
 
 @media (max-width: 400px) {
   .hero-content {
-    grid-template-rows: 280px 250px 100px;
-    top: 75px;
-    /* Merged header rows */
+    grid-template-rows: 30% 30% 20%;
+    height: 90vh;
+    height: 90dvh;
+    top: 0;
+    align-items: center;
   }
 
   .hero-stats {
     flex-direction: column;
-    gap: 10px;
-    margin: 0;
+    gap: 0px;
+    margin: 0px auto;
+  }
+
+  .hero-image {
+    min-height: 90vh;
+    min-height: 90dvh;
+  }
+
+  .parallax {
+    min-height: calc(90vh - 140px);
+    min-height: calc(90dvh - 140px);
   }
 
 
   .hero-cta {
-    margin: 0;
+    align-items: center;
+    justify-items: center;
+    align-self: center;
   }
+
 
   .glow-text {
     font-size: clamp(40px, 12.8vw, 64px);
