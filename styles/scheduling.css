@@ -367,6 +367,11 @@ p {
 }
 
 @media (max-width: 600px) {
+  .hero-text2::before {
+    opacity: 1;
+    animation: borderTrace 10s linear infinite running;
+  }
+
   .container1 {
     padding: 0 20px;
   }
