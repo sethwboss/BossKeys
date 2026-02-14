@@ -1,8 +1,3 @@
-// Initialize Supabase
-const supabaseUrl = 'https://sdconinhwvanktqwcggp.supabase.co';
-const supabaseKey = 'sb_publishable_9yg2JUR0Yiu08p-expcNPg_ltclQYBi';
-// Use window.supabase to ensure we are accessing the global library
-const supabaseClient = window.supabase ? window.supabase.createClient(supabaseUrl, supabaseKey) : null;
 
 function copyToClipboard(text, button) {
     navigator.clipboard.writeText(text).then(() => {
@@ -51,7 +46,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
     players.forEach(player => {
         const audioSrc = player.getAttribute('data-src');
-        const audio = new Audio(audioSrc);
+        const audio = new Audio();
+        audio.preload = 'auto'; // Force buffer metadata for better seeking
+        audio.src = audioSrc;
         allAudioLinks.push(audio);
         const playPauseBtn = player.querySelector('.play-pause-btn');
         const playIcon = player.querySelector('.play-icon');
@@ -157,20 +154,47 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
 
-        // Seek Functionality (changed back to 'change' for better performance)
+        // Seek Functionality
         seekSlider.addEventListener('change', () => {
-            if (audio.duration && !isNaN(audio.duration)) {
-                audio.currentTime = (seekSlider.value / 100) * audio.duration;
+            const percentage = seekSlider.value / 100;
 
-                // Start playing if paused when seeking
-                if (audio.paused) {
-                    allAudioLinks.forEach(a => {
-                        if (a !== audio) a.pause();
-                    });
-                    audio.play();
-                    playIcon.style.display = 'none';
-                    pauseIcon.style.display = 'block';
+            const performSeek = () => {
+                if (audio.duration && !isNaN(audio.duration) && audio.duration !== Infinity) {
+                    audio.currentTime = percentage * audio.duration;
+                } else {
+                    // Fallback: wait for metadata if not available yet
+                    const onMetadata = () => {
+                        if (audio.duration && audio.duration !== Infinity) {
+                            audio.currentTime = percentage * audio.duration;
+                        }
+                    };
+                    audio.addEventListener('loadedmetadata', onMetadata, { once: true });
+                    audio.addEventListener('durationchange', onMetadata, { once: true });
+                    // Also try to force a load if it seems stuck
+                    if (audio.readyState === 0) audio.load();
                 }
+            };
+
+            if (audio.paused) {
+                // Pause all other tracks
+                allAudioLinks.forEach(a => {
+                    if (a !== audio) a.pause();
+                });
+
+                // For streaming sources (like Appwrite), we often need to start playing 
+                // before the browser allows seeking to a specific buffered range.
+                audio.play().then(() => {
+                    performSeek();
+                }).catch(err => {
+                    console.error('Playback failed:', err);
+                    // Even if play fails (e.g. user gesture req), try to seek anyway
+                    performSeek();
+                });
+
+                playIcon.style.display = 'none';
+                pauseIcon.style.display = 'block';
+            } else {
+                performSeek();
             }
         });
 
