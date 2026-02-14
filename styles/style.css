@@ -729,14 +729,15 @@ p {
 
 
   .hero-cta {
+    display: flex;
+    justify-content: center;
     align-items: center;
-    justify-items: center;
     align-self: center;
   }
 
   .book_now a {
-    margin: 0;
-    /* Reset the 'auto' margin to let flexbox handle it */
+    margin: 0 auto;
+    /* Ensured centering for block-level elements */
   }
 
 
