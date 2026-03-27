@@ -109,7 +109,7 @@ nav:hover::before {
 }
 
 .menu-toggle:hover .bar {
-    background-color: white;
+    background-color: var(--primary-color);
     box-shadow: 0 0 10px var(--primary-color);
 }
 
