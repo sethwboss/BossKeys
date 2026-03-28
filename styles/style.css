@@ -493,7 +493,7 @@ p {
 /* The hero image */
 .hero-image {
   background-image: url("../images/grand_piano3original.jpg");
-  min-height: 80dvh;
+  min-height: 80vh;
   width: 100%;
   background-position: center;
   background-repeat: no-repeat;
@@ -640,6 +640,10 @@ p {
 
 /* Responsiveness */
 @media (max-width: 600px) {
+  .parallax { 
+    
+  }
+
   .hero-content {
     top: 100px;
   }
