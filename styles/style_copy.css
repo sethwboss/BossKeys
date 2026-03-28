@@ -640,8 +640,9 @@ p {
 
 /* Responsiveness */
 @media (max-width: 600px) {
-  .parallax { 
-    
+  .hero-section {
+    /* Locks size to static hardware height so the URL bar opening/closing doesn't bounce the image */
+    background-size: auto 100vh;
   }
 
   .hero-content {
