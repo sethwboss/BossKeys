@@ -177,7 +177,7 @@ nav:hover::before {
         /* Aligned with header height + padding */
         left: 0;
         right: 0;
-        background: rgba(10, 10, 10, 0.95);
+        background: rgba(10, 10, 10, 0.9);
         backdrop-filter: blur(15px);
         flex-direction: column;
         width: 100%;
