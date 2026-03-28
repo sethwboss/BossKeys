@@ -640,16 +640,12 @@ p {
 
 /* Responsiveness */
 @media (max-width: 600px) {
-  .hero-section {
-    /* Locks size to static hardware height so the URL bar opening/closing doesn't bounce the image */
-    background-size: auto 100vh;
+  .parallax { 
+    
   }
 
   .hero-content {
-    grid-template-rows: 40% 30% 30%;
-    height: calc(90dvh - 140px);
-    top: 0;
-    align-items: center;
+    top: 100px;
   }
 
   .glow-text {
@@ -659,7 +655,6 @@ p {
   .hero-stats {
     flex-direction: row;
     padding-top: 0px;
-    margin-top: -10px;
   }
 
   .hero-stats span {
@@ -698,16 +693,16 @@ p {
     animation: borderTrace 10s linear infinite running;
   }
 
-  .hero-cta {
-    align-self: start;
-  }
-
-  .book_now a {
-    margin: 0 auto;
-  }
 }
 
 @media (max-width: 400px) {
+  .hero-content {
+    grid-template-rows: 40% 30% 30%;
+    height: calc(90dvh - 140px);
+    top: 0;
+    align-items: center;
+  }
+
   .hero-stats {
     flex-direction: column;
     gap: 0px;
