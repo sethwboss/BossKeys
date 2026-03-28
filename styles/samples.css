@@ -638,8 +638,6 @@ p {
     /* Doubled the 7vw and made both titles the same size */
   }
 
-  hero-text2 h1 {}
-
   .hero-text2 p {
     width: 100%;
     max-width: 100%;
