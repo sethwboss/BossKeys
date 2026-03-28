@@ -695,7 +695,6 @@ p {
   .hero-content {
     grid-template-rows: 40% 30% 30%;
     height: calc(90dvh - 140px);
-    height: calc(90dvh - 140px);
     top: 0;
     align-items: center;
   }
@@ -745,7 +744,7 @@ p {
 }
 
 /* Fix iOS Background Attachment Bug */
-@media (max-width: 400px) {
+@media (max-width: 500px) {
   @supports (-webkit-touch-callout: none) {
     .parallax, .hero-section, .hero-image {
       background-attachment: scroll !important;
