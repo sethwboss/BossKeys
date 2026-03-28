@@ -659,6 +659,7 @@ p {
   .hero-stats {
     flex-direction: row;
     padding-top: 0px;
+    margin-top: -10px;
   }
 
   .hero-stats span {
