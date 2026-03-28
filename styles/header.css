@@ -160,7 +160,13 @@ nav:hover::before {
     }
 }
 
-@media (max-width: 450px) {
+@media (max-width: 400px) {
+    .nav_links {
+        gap: 10px;
+    }
+}
+
+@media (max-width: 400px) {
     nav {
         justify-content: space-between;
         padding: 10px 30px;
