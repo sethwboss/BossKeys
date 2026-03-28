@@ -669,3 +669,12 @@ html {
     /* Doubled the 7vw and made both titles the same size */
   }
 }
+
+/* Fix iOS Background Attachment Bug */
+@media (max-width: 400px) {
+  @supports (-webkit-touch-callout: none) {
+    .parallax, .hero-section, .hero-image {
+      background-attachment: scroll !important;
+    }
+  }
+}

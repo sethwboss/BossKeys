@@ -746,3 +746,12 @@ p {
   }
 
 }
+
+/* Fix iOS Background Attachment Bug */
+@media (max-width: 400px) {
+  @supports (-webkit-touch-callout: none) {
+    .parallax, .hero-section, .hero-image {
+      background-attachment: scroll !important;
+    }
+  }
+}
