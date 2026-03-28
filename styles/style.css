@@ -149,7 +149,7 @@ p {
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
-  min-height: calc(80dvh - 140px);
+  min-height: calc(80vh - 140px);
   /* Reduced by another 50px to pull main content further up into view */
   display: flex;
   align-items: center;
