@@ -696,6 +696,13 @@ p {
     animation: borderTrace 10s linear infinite running;
   }
 
+  .hero-cta {
+    align-self: start;
+  }
+
+  .book_now a {
+    margin: 0 auto;
+  }
 }
 
 @media (max-width: 400px) {
