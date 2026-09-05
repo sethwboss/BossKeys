@@ -73,6 +73,7 @@ h1 {
 h2 {
   font-size: clamp(2rem, 5vw, 50px);
   font-weight: 500;
+  color: var(--primary-color);
 }
 
 h3 {
@@ -88,7 +89,7 @@ p {
 /* Transitions */
 .transition0 {
   background-color: black;
-  height: 100px;
+  height: 50px;
   width: 100%;
   display: flex;
   align-items: center;
@@ -162,7 +163,7 @@ p {
 .hero-text2 {
   max-width: 900px;
   margin: 80px auto;
-  padding: 40px;
+  padding: 60px 50px 40px 50px;
   background: var(--glass-bg);
   backdrop-filter: blur(12px);
   border: 1px solid var(--glass-border);
@@ -216,10 +217,9 @@ p {
   }
 }
 
-
-
 .hero-text2 h2 {
-  color: white;
+  color: var(--primary-color);
+  margin-top: 0;
   margin-bottom: 30px;
   font-size: clamp(2rem, 5vw, 50px);
 }
@@ -273,59 +273,89 @@ p {
   text-align: right;
 }
 
-/* Calendar Container */
-.container1 {
+/* Calendar Section */
+.calendar-box {
+  max-width: 950px;
+  margin: 40px auto 40px;
+  padding: 60px 30px 15px 30px;
+}
+
+.calendar-box h2 {
+  margin-top: 0;
+  margin-bottom: 10px;
+}
+
+.calendar-subtitle {
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 1.1rem;
+  margin-top: 0;
+  margin-bottom: 25px;
+  font-family: var(--paragraph-font);
+  letter-spacing: 1px;
+}
+
+/* Lesson Selector Tabs */
+.lesson-tabs {
   display: flex;
-  flex-direction: column;
-  gap: 60px;
-  max-width: 1200px;
-  margin: 0 auto 100px;
-  padding: 0 40px;
-  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-bottom: 25px;
 }
 
-.image-left {
-  width: 100%;
-  max-width: 800px;
-  border-radius: 20px;
-  overflow: hidden;
-  border: 1px solid var(--glass-border);
-  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5);
-}
-
-.image-left img {
-  width: 100%;
-  display: block;
-}
-
-.text-right {
-  width: 100%;
-  text-align: center;
-}
-
-.text-top h2 {
-  margin-bottom: 40px;
+.lesson-tab {
+  background: rgba(255, 255, 255, 0.05);
   color: white;
+  border: 1px solid rgba(255, 196, 0, 0.3);
+  border-radius: 30px;
+  padding: 10px 22px;
+  font-size: 0.95rem;
+  font-family: var(--heading-font);
+  font-weight: 600;
+  letter-spacing: 1px;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.image-right {
+.lesson-tab:hover {
+  border-color: var(--primary-color);
+  background: rgba(255, 196, 0, 0.1);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 15px rgba(255, 196, 0, 0.2);
+}
+
+.lesson-tab.active {
+  background: var(--primary-color);
+  color: black;
+  border-color: var(--primary-color);
+  box-shadow: 0 0 20px rgba(255, 196, 0, 0.4);
+}
+
+.star-emoji {
+  display: inline-block;
+  margin-right: 5px;
+  filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 1)) drop-shadow(0 0 3px rgba(0, 0, 0, 0.95)) drop-shadow(0 0 1px rgba(0, 0, 0, 1));
+  vertical-align: -1px;
+}
+
+.cal-embed-container {
   width: 100%;
-  max-width: 700px;
-  margin: 0 auto;
-  border-radius: 20px;
+  min-height: 480px;
+  background: transparent;
+  border: none;
+  border-radius: 12px;
   overflow: hidden;
-  border: 1px solid var(--glass-border);
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+  box-shadow: none;
 }
 
-.image-right img {
-  width: 100%;
-  display: block;
-  transition: transform 0.5s ease;
-}
+@media (max-width: 768px) {
+  .calendar-box {
+    padding: 30px 15px 10px 15px;
+  }
 
-.image-right:hover img {
-  transform: scale(1.02);
+  .cal-embed-container {
+    min-height: 600px;
+  }
 }
 
 /* Button consistency */
@@ -382,7 +412,7 @@ p {
 }
 
 .lesson-info-section {
-  padding: 40px 0;
+  padding: 20px 0;
   display: flex;
   justify-content: center;
 }
