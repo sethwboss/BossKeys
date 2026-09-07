@@ -653,6 +653,7 @@ p {
   .hero-section {
     /* Locks size to static hardware height so the URL bar opening/closing doesn't bounce the image */
     background-size: auto 100vh;
+    background-position: center -210px;
   }
 
   .hero-content {

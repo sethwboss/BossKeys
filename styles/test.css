@@ -658,6 +658,11 @@ p {
 
 /* Responsiveness */
 @media (max-width: 600px) {
+  .hero-section {
+    background-size: auto 100vh;
+    background-position: center -210px;
+  }
+
   .glow-text {
     line-height: 1;
   }
