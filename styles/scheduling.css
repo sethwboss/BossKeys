@@ -99,14 +99,14 @@ p {
 
 /* Hero Section */
 .hero-image {
-  background-image: url("../images/grand_piano4realistic.webp");
+  background-image: url("../images/Background5.webp");
   min-height: calc(80vh - 140px);
   width: 100%;
   padding-top: 170px;
   display: flex;
   align-items: flex-start;
   justify-content: center;
-  background-position: center;
+  background-position: center -65px;
   background-attachment: fixed;
   background-repeat: no-repeat;
   background-size: auto 100%;
@@ -418,6 +418,18 @@ p {
 
 
 
+
+/* Large Desktop: keep subtitle on a single line */
+@media (min-width: 901px) {
+  .hero-text {
+    max-width: 1200px;
+  }
+
+  .hero-text p {
+    font-size: clamp(1.2rem, 2.3vw, 2.2rem);
+    white-space: nowrap;
+  }
+}
 
 /* Responsiveness */
 @media (max-width: 900px) {
