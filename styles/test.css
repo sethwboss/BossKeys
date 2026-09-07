@@ -662,6 +662,10 @@ p {
     align-items: center;
   }
 
+  .hero-header {
+    justify-content: flex-end;
+  }
+
   .glow-text {
     line-height: 1;
   }
