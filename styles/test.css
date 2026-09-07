@@ -162,17 +162,8 @@ p {
   background-size: cover;
 }
 
-/* Fix Mobile Background Attachment & Address Bar Resize Jumps */
-@media (max-width: 768px) {
-  .parallax,
-  .hero-section,
-  .hero-image {
-    background-attachment: scroll !important;
-  }
-}
-
 .hero-section {
-  background-image: url("../images/grand_piano1realistic.png");
+  background-image: url("../images/grand_piano1realistic_resized.webp");
   background-position: center -130px;
   background-size: auto 100%;
 }
@@ -660,7 +651,6 @@ p {
 @media (max-width: 600px) {
   .hero-section {
     background-size: auto 100vh;
-    background-position: center -210px;
   }
 
   .glow-text {
