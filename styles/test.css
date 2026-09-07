@@ -29,8 +29,6 @@
 
   --gold-gradient: linear-gradient(135deg, #1a1a1a 0%, #d4af37 100%);
   --gold-glow: 0 0 20px rgba(212, 175, 55, 0.4);
-
-  --header-height: 80px;
 }
 
 
@@ -62,7 +60,7 @@ html {
 }
 
 main {
-  margin-top: var(--header-height);
+  margin-top: 80px;
   /* Offset for fixed header */
 }
 
@@ -147,18 +145,17 @@ p {
 
 
 .parallax {
-  min-height: calc(85svh - var(--header-height));
-  min-height: calc(85vh - var(--header-height));
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  position: relative;
-  overflow: hidden;
-  background-color: black;
   background-attachment: fixed;
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
+  min-height: calc(80vh - 140px);
+  /* Reduced by another 50px to pull main content further up into view */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  background-color: black;
 }
 
 .hero-section {
@@ -189,23 +186,26 @@ p {
 }
 
 .hero-content {
-  position: relative;
-  margin: 0 auto;
-  padding: 35px 20px 45px 20px;
+  position: absolute;
+  top: 175px;
+  left: 50%;
+  transform: translateX(-50%);
   z-index: 10;
   text-align: center;
   width: 100%;
   max-width: 900px;
-  display: flex;
-  flex-direction: column;
+  padding: 0 20px;
+  /* Grid anchoring for stats and CTA, flexible flow for header */
+  display: grid;
+  grid-template-rows: 190px 150px 100px;
   align-items: center;
-  gap: 25px;
 }
 
 .hero-header {
   display: flex;
   flex-direction: column;
   justify-content: center;
+  height: 100%;
 }
 
 .glow-text {
@@ -227,6 +227,7 @@ p {
   letter-spacing: 2px;
   text-transform: none;
   line-height: 1;
+  text-shadow: 0 0 5px rgb(0, 0, 0), 0 0 5px rgb(0, 0, 0);
 }
 
 .hero-stats {
@@ -234,12 +235,14 @@ p {
   justify-content: center;
   gap: 40px;
   margin: 0;
+  /* Handled by grid row height */
 }
 
 .hero-stats p {
   font-family: var(--heading-font);
   font-size: 1.1rem;
-  opacity: 0.9;
+  opacity: 1;
+  text-shadow: 0 0 5px rgb(0, 0, 0), 0 0 5px rgb(0, 0, 0);
 }
 
 .hero-stats span {
@@ -252,11 +255,20 @@ p {
 
 .hero-cta {
   margin: 0;
+  /* Handled by grid row height */
 }
 
 
 .content-section {
-  padding: 100px 0;
+  padding: 50px 0;
+}
+
+.content-section.appointments-section {
+  padding-top: 100px;
+}
+
+.content-section:last-of-type {
+  padding-bottom: 100px;
 }
 
 .grid-container {
@@ -491,7 +503,7 @@ p {
 /* The hero image */
 .hero-image {
   background-image: url("../images/grand_piano3original.jpg");
-  height: 80vh;
+  min-height: 80vh;
   width: 100%;
   background-position: center;
   background-repeat: no-repeat;
@@ -638,27 +650,16 @@ p {
 
 /* Responsiveness */
 @media (max-width: 600px) {
-  :root {
-    --header-height: 70px;
-  }
-
-  main {
-    margin-top: var(--header-height);
-  }
-
-  .parallax {
-    min-height: calc(90svh - var(--header-height));
-    min-height: calc(90vh - var(--header-height));
-  }
-
   .hero-section {
+    /* Locks size to static hardware height so the URL bar opening/closing doesn't bounce the image */
     background-size: auto 100vh;
   }
 
   .hero-content {
-    padding: 25px 15px 35px 15px;
-    gap: 20px;
-    height: auto;
+    grid-template-rows: 40% 30% 30%;
+    height: calc(90svh - 140px);
+    top: 0;
+    align-items: center;
   }
 
   .glow-text {
@@ -668,10 +669,7 @@ p {
   .hero-stats {
     flex-direction: row;
     padding-top: 0px;
-    gap: 20px;
-    width: 100%;
-    max-width: 450px;
-    justify-content: space-around;
+    margin-top: -10px;
   }
 
   .hero-stats span {
@@ -683,11 +681,9 @@ p {
   }
 
   .subtitle {
-    margin-top: 15px;
-  }
+    margin-top: 20px;
+    /* Bigger gap for mobile as requested */
 
-  .hero-cta {
-    margin-top: 5px;
   }
 
   h2 {
@@ -712,22 +708,20 @@ p {
     animation: borderTrace 10s linear infinite running;
   }
 
+  .hero-cta {
+    align-self: start;
+  }
+
+  .book_now a {
+    margin: 0 auto;
+  }
 }
 
 @media (max-width: 400px) {
-  :root {
-    --header-height: 60px;
-  }
-
-  .hero-content {
-    padding: 20px 10px 30px 10px;
-    gap: 15px;
-  }
-
   .hero-stats {
     flex-direction: column;
-    gap: 4px;
-    margin: 0;
+    gap: 0px;
+    margin: 0px auto;
   }
 
   .hero-stats span {
@@ -736,12 +730,31 @@ p {
 
   .hero-stats p {
     font-size: clamp(0.75rem, 10vw, 0.9rem);
+    /* Tightens the vertical space between the three stats */
     line-height: 1.1;
   }
 
-  .hero-cta {
-    margin-top: 5px;
+  .hero-image {
+    min-height: 90svh;
   }
+
+  .parallax {
+    min-height: calc(90svh - 140px);
+  }
+
+
+  .hero-cta {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    align-self: center;
+  }
+
+  .book_now a {
+    margin: 0 auto;
+    /* Ensured centering for block-level elements */
+  }
+
 
   .glow-text {
     font-size: clamp(40px, 12.8vw, 64px);
