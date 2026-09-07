@@ -657,9 +657,13 @@ p {
 
   .hero-content {
     grid-template-rows: 40% 30% 30%;
-    height: calc(90dvh - 140px);
+    height: calc(90svh - 140px);
     top: 0;
     align-items: center;
+  }
+
+  .hero-header {
+    justify-content: flex-end;
   }
 
   .glow-text {
@@ -735,11 +739,11 @@ p {
   }
 
   .hero-image {
-    min-height: 90dvh;
+    min-height: 90svh;
   }
 
   .parallax {
-    min-height: calc(90dvh - 140px);
+    min-height: calc(90svh - 140px);
   }
 
 
