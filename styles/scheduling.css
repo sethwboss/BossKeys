@@ -99,7 +99,7 @@ p {
 
 /* Hero Section */
 .hero-image {
-  background-image: url("../images/grand_piano4realistic.png");
+  background-image: url("../images/grand_piano4realistic.webp");
   min-height: calc(80vh - 140px);
   width: 100%;
   padding-top: 170px;

@@ -149,7 +149,7 @@ p {
 
 
 .hero-image {
-  background-image: url("../images/grand_piano2realistic.png");
+  background-image: url("../images/grand_piano2realistic.webp");
   min-height: calc(80vh - 140px);
   width: 100%;
   display: flex;
