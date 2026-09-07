@@ -29,6 +29,8 @@
 
   --gold-gradient: linear-gradient(135deg, #1a1a1a 0%, #d4af37 100%);
   --gold-glow: 0 0 20px rgba(212, 175, 55, 0.4);
+
+  --header-height: 80px;
 }
 
 
@@ -60,7 +62,7 @@ html {
 }
 
 main {
-  margin-top: 80px;
+  margin-top: var(--header-height);
   /* Offset for fixed header */
 }
 
@@ -145,14 +147,11 @@ p {
 
 
 .parallax {
-  min-height: 80vh;
-  min-height: 80dvh;
-  /* Optimized for mobile address bars */
+  min-height: calc(85svh - var(--header-height));
+  min-height: calc(85vh - var(--header-height));
   display: flex;
   align-items: center;
-  /* Perfect vertical centering */
   justify-content: center;
-  /* Perfect horizontal centering */
   position: relative;
   overflow: hidden;
   background-color: black;
@@ -191,30 +190,22 @@ p {
 
 .hero-content {
   position: relative;
-  /* Change from absolute */
-  top: 0;
-  /* Remove the 175px anchor */
   margin: 0 auto;
-  /* Center horizontally */
+  padding: 35px 20px 45px 20px;
   z-index: 10;
   text-align: center;
   width: 100%;
   max-width: 900px;
-  padding: 0 20px;
-
-  /* Keep your grid layout, but let flexbox handle the verticality */
-  display: grid;
-  grid-template-rows: auto auto auto;
-  /* Let content dictate height */
-  gap: 20px;
-  /* Add consistent spacing */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 25px;
 }
 
 .hero-header {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  height: 100%;
 }
 
 .glow-text {
@@ -243,7 +234,6 @@ p {
   justify-content: center;
   gap: 40px;
   margin: 0;
-  /* Handled by grid row height */
 }
 
 .hero-stats p {
@@ -262,7 +252,6 @@ p {
 
 .hero-cta {
   margin: 0;
-  /* Handled by grid row height */
 }
 
 
@@ -649,8 +638,27 @@ p {
 
 /* Responsiveness */
 @media (max-width: 600px) {
+  :root {
+    --header-height: 70px;
+  }
+
+  main {
+    margin-top: var(--header-height);
+  }
+
+  .parallax {
+    min-height: calc(90svh - var(--header-height));
+    min-height: calc(90vh - var(--header-height));
+  }
+
   .hero-section {
     background-size: auto 100vh;
+  }
+
+  .hero-content {
+    padding: 25px 15px 35px 15px;
+    gap: 20px;
+    height: auto;
   }
 
   .glow-text {
@@ -660,6 +668,10 @@ p {
   .hero-stats {
     flex-direction: row;
     padding-top: 0px;
+    gap: 20px;
+    width: 100%;
+    max-width: 450px;
+    justify-content: space-around;
   }
 
   .hero-stats span {
@@ -671,8 +683,11 @@ p {
   }
 
   .subtitle {
-    margin-top: 20px;
-    /* Bigger gap for mobile as requested */
+    margin-top: 15px;
+  }
+
+  .hero-cta {
+    margin-top: 5px;
   }
 
   h2 {
@@ -700,20 +715,32 @@ p {
 }
 
 @media (max-width: 400px) {
+  :root {
+    --header-height: 60px;
+  }
+
   .hero-content {
-    top: auto;
-    gap: 20px;
+    padding: 20px 10px 30px 10px;
+    gap: 15px;
   }
 
   .hero-stats {
     flex-direction: column;
-    gap: 10px;
+    gap: 4px;
     margin: 0;
   }
 
+  .hero-stats span {
+    font-size: clamp(1.2rem, 10vw, 1.8rem);
+  }
+
+  .hero-stats p {
+    font-size: clamp(0.75rem, 10vw, 0.9rem);
+    line-height: 1.1;
+  }
 
   .hero-cta {
-    margin: 0;
+    margin-top: 5px;
   }
 
   .glow-text {
