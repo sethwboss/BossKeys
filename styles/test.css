@@ -162,13 +162,12 @@ p {
   background-size: cover;
 }
 
-/* Fix for mobile parallax - most mobile browsers don't support 'fixed' correctly */
+/* Fix Mobile Background Attachment & Address Bar Resize Jumps */
 @media (max-width: 768px) {
-  .parallax {
-    background-attachment: scroll;
-    min-height: 80vh;
-    min-height: 80svh;
-    /* Small viewport height for stable mobile layout */
+  .parallax,
+  .hero-section,
+  .hero-image {
+    background-attachment: scroll !important;
   }
 }
 

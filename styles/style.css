@@ -762,11 +762,11 @@ p {
 
 }
 
-/* Fix iOS Background Attachment Bug */
-@media (max-width: 500px) {
-  @supports (-webkit-touch-callout: none) {
-    .parallax, .hero-section, .hero-image {
-      background-attachment: scroll !important;
-    }
+/* Fix Mobile Background Attachment & Address Bar Resize Jumps */
+@media (max-width: 768px) {
+  .parallax,
+  .hero-section,
+  .hero-image {
+    background-attachment: scroll !important;
   }
 }
