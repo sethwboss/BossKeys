@@ -653,7 +653,6 @@ p {
   .hero-section {
     /* Locks size to static hardware height so the URL bar opening/closing doesn't bounce the image */
     background-size: auto 100vh;
-    background-position: center -210px;
   }
 
   .hero-content {
@@ -763,11 +762,11 @@ p {
 
 }
 
-/* Fix Mobile Background Attachment & Address Bar Resize Jumps */
-@media (max-width: 768px) {
-  .parallax,
-  .hero-section,
-  .hero-image {
-    background-attachment: scroll !important;
+/* Fix iOS Background Attachment Bug */
+@media (max-width: 500px) {
+  @supports (-webkit-touch-callout: none) {
+    .parallax, .hero-section, .hero-image {
+      background-attachment: scroll !important;
+    }
   }
 }
